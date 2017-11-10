@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.personcenter.QuestionActivity">
+
+    <include layout="@layout/include_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_titlebar"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_10dp"
+            android:background="@drawable/shape_gray_side"
+            android:hint="请输入标题"
+            android:padding="@dimen/space_10dp"
+            android:textSize="@dimen/text_14sp" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_10dp"
+            android:background="@drawable/shape_gray_side"
+            android:gravity="start"
+            android:hint="请简要描述您要反馈的问题"
+            android:minLines="8"
+            android:padding="@dimen/space_10dp"
+            android:textSize="@dimen/text_14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10dp"
+            android:text="欢迎提交您的需求和意见，我们的进步离不开您的支持和反馈"
+            android:textSize="@dimen/text_12sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/space_20dp"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_marginRight="@dimen/space_10dp"
+        android:background="@drawable/app_btn_bg"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14sp" />
+</RelativeLayout>

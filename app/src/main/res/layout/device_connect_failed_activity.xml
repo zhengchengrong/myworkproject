@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.personcenter.DeviceConnectFailedActivity">
+
+    <include
+        layout="@layout/include_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_titlebar"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_30dp"
+            android:src="@mipmap/ic_connect_failed" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_30dp"
+            android:text="心相随无感知坐便垫添加失败"
+            android:textColor="@color/txt_black"
+            android:textSize="@dimen/text_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_20dp"
+            android:text="设备配网失败"
+            android:textColor="@color/txt_black"
+            android:textSize="@dimen/text_14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_10dp"
+            android:layout_marginTop="@dimen/space_20dp"
+            android:text="WIFI配置说明：\n\n1.请确认手机是否连接wifi。\n\n2.请确认手机wifi密码是否输入正确。\n\n3.请确认设备是否已开机并且无损坏。"
+            android:textColor="@color/txt_black"
+            android:textSize="@dimen/text_14sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_restart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/space_20dp"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_marginRight="@dimen/space_10dp"
+        android:background="@drawable/app_btn_bg"
+        android:text="重试"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16sp" />
+</RelativeLayout>

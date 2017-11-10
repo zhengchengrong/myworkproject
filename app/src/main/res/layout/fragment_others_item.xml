@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.healthy.OthersItemFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_10dp">
+
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/txt_gray"
+            android:textSize="@dimen/text_14sp" />
+
+        <Button
+            android:id="@+id/btn_date"
+            android:layout_width="50dp"
+            android:layout_height="@dimen/space_30dp"
+            android:layout_marginLeft="@dimen/space_5dp"
+            android:background="@drawable/app_btn_bg"
+            android:text="日期"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/space_20dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/space_10dp">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_unit"
+                android:layout_marginRight="@dimen/space_15dp"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/space_10dp"
+                android:textColor="@color/txt_black"
+                android:textSize="16px" />
+
+            <TextView
+                android:id="@+id/tv_time_x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="小时"
+                android:textColor="@color/txt_black"
+                android:textSize="16px" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.eaphone.g08android.widget.MListView
+                android:id="@+id/list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_10dp"
+                android:divider="@color/white"
+                android:dividerHeight="@dimen/space_5dp"
+                android:paddingLeft="@dimen/space_10dp"
+                android:paddingRight="@dimen/space_10dp"
+                android:scrollbars="none">
+
+            </com.eaphone.g08android.widget.MListView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

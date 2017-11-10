@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.personcenter.KeFuActivity">
+
+    <include layout="@layout/include_titlebar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ic_stripe"
+        android:drawablePadding="@dimen/space_5dp"
+        android:padding="@dimen/space_10dp"
+        android:text="猜你想问"
+        android:textColor="@color/txt_black"
+        android:textSize="@dimen/text_14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0.5dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10dp"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ic_stripe"
+        android:drawablePadding="@dimen/space_5dp"
+        android:padding="@dimen/space_10dp"
+        android:text="联系客服"
+        android:textColor="@color/txt_black"
+        android:textSize="@dimen/text_14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/space_10dp"
+            android:text="客服电话"
+            android:textColor="@color/txt_black"
+            android:textSize="@dimen/text_14sp" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_10dp"
+            android:drawablePadding="@dimen/space_5dp"
+            android:text="400-621-1136"
+            android:textSize="@dimen/text_14sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/space_10dp"
+            android:text="留言反馈"
+            android:textColor="@color/txt_black"
+            android:textSize="@dimen/text_14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_10dp"
+            android:drawablePadding="@dimen/space_5dp"
+            android:drawableRight="@mipmap/ic_toright"
+            android:textSize="@dimen/text_14sp" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.market.MarketFragment">
+<ImageView
+    android:layout_width="match_parent"
+    android:src="@mipmap/ic_wait"
+    android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="敬请期待"
+        android:textSize="@dimen/text_16sp"
+        android:textColor="@color/txt_gray"
+        android:layout_marginTop="@dimen/space_20dp"
+        android:layout_height="wrap_content" />
+</LinearLayout>

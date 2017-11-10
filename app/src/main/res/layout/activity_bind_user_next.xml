@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.healthy.BindUserNextActivity">
+
+    <include layout="@layout/include_titlebar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10dp"
+            android:text="手机号"
+            android:textColor="@color/txt_black"
+            android:textSize="@dimen/text_14sp" />
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:gravity="end"
+            android:hint="请输入手机号码"
+            android:paddingRight="@dimen/space_20dp"
+            android:textSize="@dimen/text_14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_relation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10dp"
+            android:text="成员关系"
+            android:textColor="@color/txt_black"
+            android:textSize="@dimen/text_14sp" />
+
+        <TextView
+            android:id="@+id/tv_relation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:gravity="end"
+            android:hint="请选择关系"
+            android:paddingRight="@dimen/space_20dp"
+            android:textSize="@dimen/text_14sp" />
+    </RelativeLayout>
+</LinearLayout>

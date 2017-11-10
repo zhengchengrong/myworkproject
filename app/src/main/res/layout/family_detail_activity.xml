@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_titlebar" />
+
+
+    <include layout="@layout/item_family" />
+
+    <RelativeLayout
+        android:id="@+id/relative_file"
+        style="@style/setting_relative"
+        android:layout_marginTop="10dp"
+
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_suggest"
+            style="@style/setting_iv"
+            android:src="@mipmap/ic_healthy_file" />
+
+        <TextView
+            android:id="@+id/tv_suggest"
+            style="@style/setting_tv"
+            android:layout_toRightOf="@+id/iv_suggest"
+            android:text="健康档案" />
+
+        <TextView style="@style/setting_tv_icon" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_assessment"
+        style="@style/setting_relative"
+        android:layout_marginTop="0.5dp">
+
+        <ImageView
+            android:id="@+id/iv_pwd"
+            style="@style/setting_iv"
+            android:src="@mipmap/ic_healthy_record" />
+
+        <TextView
+            style="@style/setting_tv"
+            android:layout_toRightOf="@+id/iv_pwd"
+            android:text="健康数据" />
+
+        <TextView style="@style/setting_tv_icon" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_advice"
+        style="@style/setting_relative"
+        android:layout_marginTop="0.5dp">
+
+        <ImageView
+            android:id="@+id/iv_advice"
+            style="@style/setting_iv"
+            android:src="@mipmap/ic_doctor_advice" />
+
+        <TextView
+            style="@style/setting_tv"
+            android:layout_toRightOf="@+id/iv_advice"
+            android:text="就诊记录" />
+
+        <TextView style="@style/setting_tv_icon" />
+    </RelativeLayout>
+
+
+</LinearLayout>

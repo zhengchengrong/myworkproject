@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/space_10dp"
+        android:gravity="center">
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+        <!--<com.eaphone.g08android.widget.AutoLocateHorizontalView
+            android:id="@+id/horizontalView"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"/>-->
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_data"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_5dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="0.5dp"
+        android:scrollbars="none"></ListView>
+
+</LinearLayout>

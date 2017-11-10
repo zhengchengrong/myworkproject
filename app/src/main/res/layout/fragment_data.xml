@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.healthy.HealthyDetailActivity">
+
+
+    <LinearLayout
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2dp"
+        android:background="@color/main_color"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:padding="@dimen/space_10dp">
+
+            <TextView
+                android:id="@+id/tv_source"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_14sp" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_14sp" />
+
+            <Button
+                android:id="@+id/btn_date"
+                android:layout_width="50dp"
+                android:layout_height="@dimen/space_30dp"
+                android:layout_marginLeft="@dimen/space_5dp"
+                android:background="@drawable/shape_white_round5"
+                android:text="日期" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/main_color"
+            android:gravity="center"
+            android:padding="@dimen/space_10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_circle"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="@dimen/space_10dp"
+                    android:layout_marginLeft="@dimen/space_30dp"
+                    android:layout_marginRight="@dimen/space_30dp"
+                    android:layout_marginTop="@dimen/space_10dp"
+                    android:background="@color/white"></View>
+
+                <TextView
+                    android:id="@+id/tv_unit_ch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20dp"
+            android:background="@color/main_color"
+            android:padding="@dimen/space_10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_transparent_gray"
+                android:padding="@dimen/space_10dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_3dp"
+                    android:text="测量结果:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_14sp" />
+
+                <TextView
+                    android:id="@+id/tv_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_5dp"
+                    android:layout_toRightOf="@+id/tv_title"
+                    android:textColor="#F49791"
+                    android:textSize="@dimen/text_18sp" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_title"
+                    android:layout_marginTop="@dimen/space_10dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_14sp" />
+            </RelativeLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/ic_round"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/space_10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_trend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/space_10dp"
+                android:drawableTop="@mipmap/ic_top"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/text_16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_titlebar" />
+
+    <ImageView
+        android:id="@+id/iv_product"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/rl_titlebar"
+        android:paddingTop="@dimen/space_20dp"
+        android:paddingBottom="@dimen/space_20dp"
+        android:background="@color/white"
+        android:src="@mipmap/matong" />
+
+    <LinearLayout
+        android:layout_below="@+id/iv_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_10dp"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/space_10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10dp"
+            android:layout_weight="1"
+            android:src="@mipmap/martong_btn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10dp"
+            android:gravity="center"
+            android:text="长按心相随无感知坐便垫开机键3s，\n直至WiFi灯不断闪烁。"
+            android:textColor="@color/txt_black" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_marginRight="@dimen/space_10dp"
+        android:layout_marginBottom="@dimen/space_20dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/app_btn_bg"
+        android:text="点击添加"
+        android:textColor="@color/white" />
+</RelativeLayout>

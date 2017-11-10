@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/space_15dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@color/main_color"
+                android:orientation="vertical">
+
+                <com.eaphone.g08android.widget.CircleImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/ic_default" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/space_5dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16sp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_card"
+                style="@style/setting_relative"
+                android:layout_marginTop="@dimen/space_10dp">
+
+                <ImageView
+                    android:id="@+id/iv_card"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/zhenliaoka" />
+
+                <TextView
+                    android:id="@+id/tv_card"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_card"
+                    android:text="我的诊疗卡" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative_file"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_file"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/ic_p_f" />
+
+                <TextView
+                    android:id="@+id/tv_file"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_file"
+                    android:text="我的档案" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_device"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_service"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/ic_p_d" />
+
+                <TextView
+                    android:id="@+id/tv_cevice"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_service"
+                    android:text="我的设备" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/relative_order"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_order"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/ic_p_o" />
+
+                <TextView
+                    android:id="@+id/tv_order"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_order"
+                    android:text="我的订单" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_appoint"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_appoint"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/ic_p_a" />
+
+                <TextView
+                    android:id="@+id/tv_app"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_appoint"
+                    android:text="我的问诊" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_reocrd"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_reocrd"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/ic_p_r" />
+
+                <TextView
+                    android:id="@+id/tv_reocrd"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_reocrd"
+                    android:text="挂号记录" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_home"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_home"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/ic_p_h" />
+
+                <TextView
+                    android:id="@+id/tv_service"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_home"
+                    android:text="家庭成员" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_kefu"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_kefu"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/ic_p_p" />
+
+                <TextView
+                    android:id="@+id/tv_kefu"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_kefu"
+                    android:text="客服中心" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_set"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_set"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/ic_p_s" />
+
+                <TextView
+                    android:id="@+id/tv_set"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_set"
+                    android:text="设置" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/lv_dialog_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/bg_gray"
+        android:dividerHeight="@dimen/space_1dp"
+        android:scrollbars="none"
+        android:listSelector="@drawable/selector_item_bg"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#f8f8f8"/>
+
+    <TextView
+        android:id="@+id/tv_dialog_item_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@drawable/selector_item_bg"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/txt_black"
+        android:textSize="18sp"/>
+
+</LinearLayout>

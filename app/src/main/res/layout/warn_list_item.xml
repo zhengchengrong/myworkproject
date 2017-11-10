@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_warm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_10dp"
+                android:drawableLeft="@mipmap/ic_mark"
+                android:drawablePadding="@dimen/space_10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/md_red_500"
+                android:textSize="@dimen/text_16sp" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_warm"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/space_10dp"
+                android:textSize="@dimen/text_12sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="@dimen/space_10dp"
+            android:layout_marginRight="@dimen/space_10dp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10dp"
+            android:textSize="@dimen/text_12sp" />
+    </LinearLayout>
+</LinearLayout>

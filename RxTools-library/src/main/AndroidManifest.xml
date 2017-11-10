@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.vondear.rxtools">
+
+    <com.zcr.myproject.uses-permission android:name="android.permission.INTERNET"/>
+    <com.zcr.myproject.uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <com.zcr.myproject.uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <com.zcr.myproject.uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <com.zcr.myproject.uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!-- 外部存储 -->
+    <com.zcr.myproject.uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 许可振动 -->
+    <com.zcr.myproject.uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 打开闪光灯 -->
+    <com.zcr.myproject.uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <!-- 许可使用照相机 -->
+    <com.zcr.myproject.uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 许可调用相机硬件 -->
+    <com.zcr.myproject.uses-feature android:name="android.hardware.camera"/>
+    <!-- 许可调用相机自动对焦 -->
+    <com.zcr.myproject.uses-feature android:name="android.hardware.camera.autofocus"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity android:name=".activity.ActivityWebView"/>
+        <activity android:name=".activity.ActivityBase">
+        </activity>
+        <activity android:name=".activity.ActivityScanerCode">
+        </activity>
+        <activity android:name=".activity.ActivityCodeTool">
+        </activity>
+    </application>
+
+</manifest>

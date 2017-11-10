@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_150dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center|center_vertical" />
+
+    <TextView
+        android:id="@+id/tv_empty_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/iv_empty"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_10dp"
+        android:textColor="@color/txt_black"
+        android:textSize="@dimen/text_16sp" />
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_empty_"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_marginTop="@dimen/space_50dp"
+        android:text="为什么要添加家庭成员?"
+        android:textColor="@color/txt_black"
+        android:visibility="gone"
+        android:textSize="@dimen/text_14sp" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_text"
+        android:padding="@dimen/space_10dp"
+        android:text="添加家庭成员后，可以直接查看成员的健康情况、接诊情况等信息，实时了解家庭成员的最新动态。"
+        android:textColor="@color/txt_gray"
+        android:textSize="@dimen/text_14sp" />
+</LinearLayout>

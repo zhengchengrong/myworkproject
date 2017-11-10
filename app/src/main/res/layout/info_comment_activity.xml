@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.info.InfoCommentActivity">
+
+    <LinearLayout
+        android:id="@+id/include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/include_titlebar" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <include layout="@layout/include_list" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_reply"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_60dp"
+        android:background="@color/bg_gray"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_5dp">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/space_10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/ic_info_pen"
+            android:drawablePadding="@dimen/space_10dp"
+            android:background="@drawable/shape_edt"
+            android:hint="评论一下"
+            android:paddingBottom="@dimen/space_10dp"
+            android:paddingLeft="@dimen/space_10dp"
+            android:paddingTop="@dimen/space_10dp"
+            android:textSize="@dimen/text_14sp" />
+
+    </LinearLayout>
+</LinearLayout>

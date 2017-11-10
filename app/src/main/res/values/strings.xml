@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">" 易风健康"</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_version">v0.3.4.6</string>
+    <string name="tvApSsidTitle">SSID: </string>
+    <string name="tvPasswordTitle">Password: </string>
+    <string name="switchIsSsidHiddenTitle">SSID is Hidden</string>
+    <string name="spinnerTaskResultCountTitle">Task result count</string>
+    <string name="btnConfirmTitle">Confirm</string>
+    <string name="why_idcard">    根据国务院《关于推进分级诊疗制度建设的指导意见》等文件的要求，各地医院在推进私人医生式或网络问诊服务时，与居民签约需记录居民身份证（或其它有效证件号），作为识别居民的唯一凭证。签约成功后，医生为居民建立个人健康档案，并开展相关的健康、卫生工作。您在这里填写的证件号码将被严格保密，并且只提供给指定医院、医生，绝不向第三方透漏。如对签约有疑问，请咨询易风健康平台客服。</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--心率-->
+    <string name="warn_heart_n">您的心率测量值正常，请继续保持健康的生活方式。</string>
+    <string name="warn_heart_l">您的心率过缓，建议戒烟限酒，忌食辛辣刺激、高铁高脂食物，如有身体不适，请咨询医生、及时就诊。</string>
+    <string name="warn_heart_h">您的心率过快，建议饮食注意清淡营养，忌食辛辣刺激食物，平时可选择慢走运动帮助调节心率，如有身体不适，请咨询医生、及时就诊。</string>
+
+    <!--血压-->
+    <string name="warn_press_n">您的血压测量值正常，请继续保持健康的生活方式。 </string>
+    <string name="warn_press_l">您的血压测量值偏低，建议饮食均衡营养，多食富含高蛋白的食物，并加强运动锻炼，改善体质。 </string>
+    <string name="warn_press_h_low_grade">您的血压测量值偏高，建议戒烟限酒，注意清淡饮食，限制钠盐的摄入，放松心情，配合适量运动。 </string>
+    <string name="warn_press_h_moder_grade">您的血压测量值过高，建议调整作息，戒烟限酒，避免情绪激动，宜吃低脂肪饮食，多吃果蔬，如有身体不适，请咨询医生、及时就诊。 </string>
+    <string name="warn_press_h_high_grade">您的血压测量值严重偏高，建议采用无盐膳食、少食高钠食物，宜吃含优质蛋白、维生素、高钙的食物和钾高的蔬菜和水果。如有身体不适，请咨询医生、及时就诊</string>
+
+    <!--体温-->
+    <string name="warn_thermometer_n">您的体温测量值正常，请继续保持健康的生活方式。 </string>
+    <string name="warn_thermometer_l">您的体温测量值偏高，建议尽量多休息，饮食注意清淡营养，多喝开水，保持室内通风，如有身体不适，请咨询医生、及时就诊。</string>
+    <string name="warn_thermometer_h">您的体温测量值较高/超高，建议尽量多休息，饮食注意清淡营养，多喝开水，保持室内通风。如有身体不适，请咨询医生、及时就诊。 </string>
+    <string name="warn_thermometer_flat">您的体温测量值偏低，请注意添加衣服，然后多喝温水或者生姜水，提高体温，如长时间持续低温，建议尽快到医院就医检查</string>
+    <!--血氧饱和度-->
+    <string name="warn_oxygen_n">您的血氧饱和度测量值正常，请继续保持健康的生活方式。 </string>
+    <string name="warn_oxygen_l">您的血氧饱和度过低，建议饮食宜清淡，忌辛辣刺激性食物，多吃蔬果，保持充足的睡眠，晨起可适量做深呼吸。如有身体不适，请咨询医生、及时就诊。 </string>
+
+    <!--血糖-->
+    <string name="warn_sugar_n">您的血糖测量值正常，请继续保持健康的生活方式。</string>
+    <string name="warn_sugar_l">您的血糖测量值偏低，建议尝试口服糖水、含糖饮料，或进食糖果等可缓解；平时定时定量进餐，运动前应增加额外的碳水化合物摄入，避免酗酒和空腹饮酒；如有身体不适，请咨询医生、及时就诊。</string>
+    <string name="warn_sugar_h">您的血糖测量值偏高，建议平时适当减少食量，减少摄入高糖食物，坚持日常运动锻炼也能起到很好的辅助治疗作用；如有身体不适，请咨询医生、及时就诊。 </string>
+
+    <string name="wrong_pwd">密码不正确，请重新输入。密码由6-20位字母，数字或符号组成</string>
+    <string name="input_phone">请输入手机号</string>
+    <string name="input_right_phone">输入的手机号格式不正确，请重新输入</string>
+    <string name="input_pwd">请输入密码</string>
+    <string name="input_pwd_again">请再次输入密码</string>
+    <string name="input_wrong_pwd">密码长度不正确，请重新输入</string>
+    <string name="input_code">请输入验证码</string>
+    <string name="input_wrong_code">验证码格式错误，请重新输入</string>
+    <string name="check_vip">请勾选同意《易风健康注册协议》</string>
+    <string name="pwd_sure">输入的两次密码不一致，请重新输入</string>
+
+    <string name="loading">加载中…</string>
+    <string name="loading_up">处理中…</string>
+
+    <string name="at_your_in_group">%s在群聊中@了你</string>
+    <string name="emojicon_test_name">示例</string>
+    <string name="msg_recall_by_user">%1$s 撤回了一条消息</string>
+
+</resources>

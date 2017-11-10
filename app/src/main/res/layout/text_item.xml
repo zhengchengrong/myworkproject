@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/rl_item"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/space_10dp">
+
+    <com.eaphone.g08android.widget.CircleImageView
+        android:id="@+id/iv_avager"
+        android:layout_width="@dimen/space_50dp"
+        android:layout_height="@dimen/space_50dp" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_toRightOf="@+id/iv_avager"
+        android:background="@color/white"
+        android:padding="@dimen/space_15dp"
+        android:textColor="@color/txt_black"
+        android:textSize="@dimen/text_16sp"></TextView>
+
+    <TextView
+        android:id="@+id/tv_chennal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_toRightOf="@+id/tv_title"
+        android:padding="@dimen/space_2dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14sp" />
+
+    <ImageView
+        style="@style/setting_tv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

@@ -1,0 +1,153 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!--   <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+           &lt;!&ndash; Customize your theme here. &ndash;&gt;
+           <item name="colorPrimary">@color/colorPrimary</item>
+           <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+           <item name="colorAccent">@color/colorAccent</item>
+           <item name="windowActionBar">false</item>
+           <item name="android:windowNoTitle">true</item>
+       </style>-->
+    <!--  <style name="AppTheme" parent="CoreAppTheme"></style>-->
+
+    <style name="TextAppearance.ExpandedTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textCursorDrawable">@drawable/textcursor</item>
+    </style>
+    <!-- Base application theme. -->
+    <!-- <style name="AppTheme" parent="@style/BaseAppTheme">
+
+
+     </style>-->
+
+    <!--对话框弹出window背景变暗-->
+    <style name="Dialog" parent="Base.Animation.AppCompat.Dialog">
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <!--对话框从下向上弹出动画-->
+    <style name="Dialog.Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_bottom</item>
+    </style>
+
+    <style name="review_dialogStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:fillViewport">true</item>
+    </style>
+
+    <style name="setting_relative">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="setting_iv">
+        <item name="android:layout_width">@dimen/space_20dp</item>
+        <item name="android:layout_height">@dimen/space_20dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="setting_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/txt_black</item>
+    </style>
+
+    <style name="setting_tv_icon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:background">@mipmap/ic_toright</item>
+    </style>
+
+    <style name="data_change_color1">
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="ProgressConnect">
+
+    </style>
+
+    <style name="StyleProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:maxHeight">@dimen/space_20dp</item>
+        <item name="android:minHeight">@dimen/space_20dp</item>
+
+        <item name="android:progressDrawable">@drawable/progress_connect</item>
+    </style>
+
+    <style name="data_warn0">
+        <item name="android:textColor">#FA5742</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="tab_first_s">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/shape_tab_first_s</item>
+    </style>
+
+    <style name="tab_first_n">
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:background">@drawable/shape_tab_first_n</item>
+    </style>
+
+
+    <style name="tab_last_n">
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:background">@drawable/shape_tab_last_n</item>
+    </style>
+
+    <style name="tab_last_s">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/shape_tab_last_s</item>
+    </style>
+
+    <style name="tab_s">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/shape_tab_s</item>
+    </style>
+
+    <style name="tab_n">
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:background">@drawable/shape_tab_n</item>
+    </style>
+</resources>

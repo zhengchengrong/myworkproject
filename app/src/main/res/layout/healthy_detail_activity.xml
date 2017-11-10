@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.healthy.HealthyDetailActivity">
+
+    <include layout="@layout/include_titlebar" />
+
+    <com.eaphone.g08android.widget.verviewpager.YViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_weight="1"/>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/scrollview"
+        android:background="@color/divider_gray" />
+
+    <LinearLayout
+        android:id="@+id/ll_buttom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/view"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_10dp">
+
+        <LinearLayout
+            android:id="@+id/ll_record"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_record"
+                android:drawablePadding="@dimen/space_10dp"
+                android:gravity="center"
+                android:text="测量记录"
+                android:textColor="@color/txt_black"
+                android:textSize="@dimen/text_14sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:id="@+id/ll_warn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_yujing"
+                android:drawablePadding="@dimen/space_10dp"
+                android:gravity="center"
+                android:text="预警情况"
+                android:textColor="@color/txt_black"
+                android:textSize="@dimen/text_14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

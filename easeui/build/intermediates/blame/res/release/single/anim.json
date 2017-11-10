@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\head_out.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\head_out.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\hold.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\hold.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_in2.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\push_top_in2.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\fade_out.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\fade_out.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_out2.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\push_top_out2.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_bottom_in.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\push_bottom_in.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_out.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\push_top_out.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_in_from_left.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\slide_in_from_left.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_out_to_left.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\slide_out_to_left.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_in_from_right.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\slide_in_from_right.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_out_to_right.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\slide_out_to_right.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_bottom_out.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\push_bottom_out.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\head_in.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\head_in.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\266bcc23e3a7615bec1ab835dfcd48e253d36350\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_in.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\push_top_in.xml"
+    },
+    {
+        "merged": "E:\\zcr\\code\\g08-Android-app\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\fade_in.xml",
+        "source": "E:\\zcr\\code\\g08-Android-app\\easeui\\src\\main\\res\\anim\\fade_in.xml"
+    }
+]

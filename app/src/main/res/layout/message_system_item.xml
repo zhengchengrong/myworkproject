@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/space_10dp">
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_5dp"
+        android:lineSpacingExtra="@dimen/space_3dp"
+        android:padding="@dimen/space_10dp"
+        android:textColor="@color/txt_black" />
+
+    <View
+        android:id="@+id/v_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray"></View>
+
+    <TextView
+        android:id="@+id/tv_look_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingRight="@dimen/space_10dp"
+        android:gravity="right"
+        android:padding="@dimen/space_10dp"
+        android:text="查看详情"
+        android:textColor="@color/main_color" />
+</LinearLayout>

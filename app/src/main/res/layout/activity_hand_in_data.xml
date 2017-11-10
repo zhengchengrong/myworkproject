@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.eaphone.g08android.ui.healthy.HandInDataActivity">
+
+    <include layout="@layout/include_titlebar" />
+
+    <RelativeLayout
+        android:id="@+id/relative_time"
+        style="@style/setting_relative">
+
+        <ImageView
+            android:id="@+id/iv_time"
+            style="@style/setting_iv"
+            android:src="@mipmap/ic_time" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/setting_tv"
+            android:layout_toRightOf="@+id/iv_time"
+            android:text="测量时间" />
+
+
+        <TextView
+            android:id="@+id/tv_choose_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/space_5dp"
+            android:drawablePadding="@dimen/space_10dp"
+            android:drawableRight="@mipmap/ic_toright"
+            android:hint="请选择"
+            android:textSize="@dimen/text_14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_shou"
+        style="@style/setting_relative"
+        android:layout_marginTop="@dimen/space_10dp">
+
+        <ImageView
+            android:id="@+id/iv_shou"
+            style="@style/setting_iv"
+            android:src="@mipmap/ic_shou" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/setting_tv"
+            android:layout_toRightOf="@+id/iv_shou"
+            android:text="收缩压" />
+
+
+        <TextView
+            android:id="@+id/tv_shou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/space_5dp"
+            android:drawablePadding="@dimen/space_10dp"
+            android:drawableRight="@mipmap/ic_toright"
+            android:hint="请选择"
+            android:textSize="@dimen/text_14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_shu"
+        style="@style/setting_relative"
+        android:layout_marginTop="@dimen/space_10dp">
+
+        <ImageView
+            android:id="@+id/iv_shu"
+            style="@style/setting_iv"
+            android:src="@mipmap/ic_shu" />
+
+        <TextView
+            android:id="@+id/tv_title2"
+            style="@style/setting_tv"
+            android:layout_toRightOf="@+id/iv_shu"
+            android:text="舒张压" />
+
+
+        <TextView
+            android:id="@+id/tv_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/space_5dp"
+            android:drawablePadding="@dimen/space_10dp"
+            android:drawableRight="@mipmap/ic_toright"
+            android:hint="请选择"
+            android:textSize="@dimen/text_14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_status"
+        style="@style/setting_relative"
+        android:layout_marginTop="@dimen/space_10dp">
+
+        <ImageView
+            android:id="@+id/iv_status"
+            style="@style/setting_iv"
+            android:src="@mipmap/ic_status" />
+
+        <TextView
+            android:id="@+id/tv_title3"
+            style="@style/setting_tv"
+            android:layout_toRightOf="@+id/iv_status"
+            android:text="测量状态" />
+
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/space_5dp"
+            android:drawablePadding="@dimen/space_10dp"
+            android:drawableRight="@mipmap/ic_toright"
+            android:hint="请选择"
+            android:textSize="@dimen/text_14sp" />
+    </RelativeLayout>
+</LinearLayout>

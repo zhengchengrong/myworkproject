@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10dp"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/xueyajilu"
+        android:drawablePadding="@dimen/space_10dp"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/space_2dp"
+        android:paddingLeft="@dimen/space_10dp"
+        android:paddingTop="@dimen/space_20dp"
+        android:textColor="@color/txt_gray"
+        android:textSize="@dimen/text_14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.3dp" />
+</LinearLayout>
+
+

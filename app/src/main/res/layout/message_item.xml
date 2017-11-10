@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:id="@+id/relative_item"
+    android:gravity="center_vertical"
+    android:padding="@dimen/space_10dp">
+
+    <com.eaphone.g08android.widget.CircleImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/space_50dp"
+        android:layout_height="@dimen/space_50dp" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:textColor="@color/txt_black"
+        android:textSize="@dimen/text_16sp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/space_10dp" />
+
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginLeft="@dimen/space_10dp"
+        android:layout_marginTop="@dimen/space_10dp"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:lineSpacingExtra="@dimen/space_5dp"
+        android:maxLines="2"
+        android:paddingRight="@dimen/space_20dp" />
+
+    <TextView
+        android:id="@+id/tv_red_point"
+        android:layout_width="@dimen/space_10dp"
+        android:layout_height="@dimen/space_10dp"
+        android:layout_alignRight="@+id/iv_icon"
+        android:background="@drawable/shape_red"
+        android:gravity="center"
+        android:padding="0.5dp"
+        android:textColor="@color/white"
+        android:textSize="7sp"
+        android:visibility="gone" />
+</RelativeLayout>

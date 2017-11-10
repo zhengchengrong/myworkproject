@@ -1,0 +1,117 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'me.tatarka.retrolambda'
+
+version = "1.0.0"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Dependencies for local unit tests
+    testCompile "junit:junit:$rootProject.ext.junitVersion"
+    testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
+    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+
+    // Espresso UI Testing
+    androidTestCompile "com.android.support.test:runner:$rootProject.runnerVersion"
+    androidTestCompile "com.android.support.test:rules:$rootProject.rulesVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+
+    // Resolve conflicts between main and test APK:
+    androidTestCompile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    androidTestCompile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    androidTestCompile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    androidTestCompile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+
+    // Android support
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+
+    // Retrofit
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttploggingVersion"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+
+    // RxJava
+    compile "io.reactivex:rxjava:$rootProject.rxjavaVersion"
+    compile "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
+    compile "com.jakewharton.rxbinding:rxbinding:$rootProject.rxbindingVersion"
+
+    // Glide
+    compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    compile "com.github.bumptech.glide:okhttp-integration:$rootProject.glideokhttpVersion"
+
+    // Others
+    compile "com.commit451:PhotoView:$rootProject.photoviewVersion"
+//    compile "com.github.promeg:tinypinyin:1.0.0"
+//    compile "org.greenrobot:eventbus:3.0.0"
+
+    //Butterknife
+    compile 'com.jakewharton:butterknife:8.2.1'
+//    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //fragmentation
+    compile 'me.yokeyword:fragmentation:0.7.13'
+    //permissions
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.8.0@aar'
+
+    compile 'com.github.ybq:Android-SpinKit:1.1.0'
+
+    compile 'com.alley:VanGogh:1.3.3'
+
+    //刷新
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28'
+
+    //选择器
+    compile 'cn.qqtheme.framework:AndroidPicker:latest.integration'
+
+    //eventbus
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //greendao数据库
+    compile 'org.greenrobot:greendao:3.2.2' // 添加库
+
+    // 这里集成了阿里云许多产品，包括支付
+    //compile 'com.aliyun.ams:alicloud-android-feedback:3.1.0@aar'
+    // compile 'com.aliyun.ams:alicloud-android-utdid:1.1.5.3'
+   // compile 'com.aliyun.ams:alicloud-android-ut:5.1.0'
+  // compile 'com.aliyun.ams:alicloud-android-utils:1.0.3'
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.3'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.3'
+
+    compile 'com.facebook.rebound:rebound:0.3.8'
+
+    //友盟
+    compile 'com.umeng.analytics:analytics:latest.integration'
+}
+
+
