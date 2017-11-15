@@ -19,7 +19,7 @@ import com.eaphone.g08android.bean.MessageFirstLevel;
 import com.eaphone.g08android.mvp.contracts.CommonContracts;
 import com.eaphone.g08android.mvp.presenter.MainPresenter;
 import com.eaphone.g08android.ui.healthy.HealthyFragment;
-import com.eaphone.g08android.ui.info.InfoFragment;
+import com.eaphone.g08android.ui.live.LiveHealthFragment;
 import com.eaphone.g08android.ui.login.LoginActivity;
 import com.eaphone.g08android.ui.market.MarketFragment;
 import com.eaphone.g08android.ui.message.MessageActivity;
@@ -70,7 +70,7 @@ public class MainActivity extends CoreBaseActivity<MainPresenter> implements Com
     private HealthyFragment healthyFragment;
 
     private ServiceFragment serviceFragment;
-    private InfoFragment infoFragment;
+    private LiveHealthFragment infoFragment;
 
     private MarketFragment marketFragment;
     private PersonCenterFragment centerFragment;
@@ -121,7 +121,7 @@ public class MainActivity extends CoreBaseActivity<MainPresenter> implements Com
         list = new ArrayList<>();
         healthyFragment = new HealthyFragment();
         serviceFragment = new ServiceFragment();
-        infoFragment = new InfoFragment();
+        infoFragment = new LiveHealthFragment();
         marketFragment = new MarketFragment();
         centerFragment = new PersonCenterFragment();
         list.add(healthyFragment);

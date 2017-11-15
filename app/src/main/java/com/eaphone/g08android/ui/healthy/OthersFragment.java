@@ -25,7 +25,6 @@ import butterknife.BindView;
 
 public class OthersFragment extends CoreBaseFragment {
 
-
     @BindView(R.id.rg_tab)
     RadioGroup rg_tab;
 

@@ -490,14 +490,14 @@ public class DemoHelper {
 //                    ChatType chatType = message.getChatType();
 //                    if (chatType == ChatType.Chat) { // single chat message
 //                        intent.putExtra("userId", message.getFrom());
-//                        intent.putExtra("chatType", Constant.CHATTYPE_SINGLE);
+//                        intent.putExtra("chatType", Constants.CHATTYPE_SINGLE);
 //                    } else { // group chat message
 //                        // message.getTo() is the group id
 //                        intent.putExtra("userId", message.getTo());
 //                        if(chatType == ChatType.GroupChat){
-//                            intent.putExtra("chatType", Constant.CHATTYPE_GROUP);
+//                            intent.putExtra("chatType", Constants.CHATTYPE_GROUP);
 //                        }else{
-//                            intent.putExtra("chatType", Constant.CHATTYPE_CHATROOM);
+//                            intent.putExtra("chatType", Constants.CHATTYPE_CHATROOM);
 //                        }
 //
 //                    }
@@ -619,9 +619,9 @@ public class DemoHelper {
                     return;
                 }
 //                Intent conferenceIntent = new Intent(appContext, ConferenceActivity.class);
-//                conferenceIntent.putExtra(Constant.EXTRA_CONFERENCE_ID, confId);
-//                conferenceIntent.putExtra(Constant.EXTRA_CONFERENCE_PASS, password);
-//                conferenceIntent.putExtra(Constant.EXTRA_CONFERENCE_IS_CREATOR, false);
+//                conferenceIntent.putExtra(Constants.EXTRA_CONFERENCE_ID, confId);
+//                conferenceIntent.putExtra(Constants.EXTRA_CONFERENCE_PASS, password);
+//                conferenceIntent.putExtra(Constants.EXTRA_CONFERENCE_IS_CREATOR, false);
 //                conferenceIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                appContext.startActivity(conferenceIntent);
             }

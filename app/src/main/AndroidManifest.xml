@@ -146,6 +146,7 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.info.InfoDetailActivity"
+            android:fitsSystemWindows="true"
             android:label="资讯详细" />
         <activity
             android:name=".ui.info.InfoCommentActivity"
@@ -237,6 +238,23 @@
             android:label="网页"/>
         <activity android:name=".ui.personcenter.WebPayActivity"
             android:label="支付网页"/>
+
+
+        <!--直播-->
+        <activity android:name=".ui.live.HealthClassRoomActivity"
+            android:fitsSystemWindows="true"
+            android:label="健康课堂" />
+        <activity
+            android:name=".ui.live.LiveHealthDetailActivity"
+            android:fitsSystemWindows="true"
+            android:label="资讯详细" />
+
+        <activity
+            android:name=".ui.live.livepic.ShowImageFromWebActivity"
+             />
+
+        <activity android:name=".ui.live.HealthZhiBoActivity"/>
+
         <!-- Required SDK 核心功能 -->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
         <service

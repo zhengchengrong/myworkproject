@@ -14,7 +14,7 @@ public class IApi {
 
     public static final String TEST = "http://192.168.1.238:8048/";
     public static final String MAIN = "https://api.xinxiangsui.com.cn";
-    public static final String MAIN_URL = TEST;
+    public static final String MAIN_URL = MAIN;
 
     //预约挂号
     public static final String URL_APPOINMENT = "http://open.eaphonetech.com/doctor-web/v1/bookingRegister/hospital.htm?operatorId=EphoneWY&clientUserId=";

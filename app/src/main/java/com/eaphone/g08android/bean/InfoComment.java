@@ -10,8 +10,6 @@ package com.eaphone.g08android.bean;
  * 修改备注：
  */
 public class InfoComment {
-
-
     /**
      * commentBy : {"id":"59ae4673d8e78f0ba008c9bf","name":"许猫猫","phone":"15920305675","role":"USER"}
      * commentContent : Lalalla
@@ -23,7 +21,6 @@ public class InfoComment {
      * zan : false
      * zanCount : 0
      */
-
     private CommentByBean commentBy;
     private String commentContent;
     private String createTime;

@@ -25,9 +25,7 @@ import rx.functions.Action1;
 public class HistoryDataPresenter extends JiankangContracts.HistoryDataPresenter {
     @Override
     public void onStart() {
-
     }
-
     @Override
     public void historyData(String sensor_type, String begin_time, String end_time,String userId) {
         mRxManager.add(RxJavaRetrofitService.getInstance().create(JianKangApi.class)
@@ -40,7 +38,6 @@ public class HistoryDataPresenter extends JiankangContracts.HistoryDataPresenter
                     }
                 },new ExceptionUtils(mView)));
     }
-
     @Override
     public void timeTypeData(String sensor_type, String time_type, String firstDay,String userId) {
         mRxManager.add(RxJavaRetrofitService.getInstance().create(JianKangApi.class)

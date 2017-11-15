@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <com.youth.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_120" />
+
+    <ImageView
+        android:id="@+id/iv_info_ketang"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_120"
+        android:src="@mipmap/info_ketang_logo"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_15"
+        />
+
+    <ImageView
+        android:id="@+id/iv_info_zhibo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_120"
+        android:src="@mipmap/info_zhibo_logo"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_15"
+        />
+    <ImageView
+        android:id="@+id/iv_info_com"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_120"
+        android:src="@mipmap/info_com_logo"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_15"
+        />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

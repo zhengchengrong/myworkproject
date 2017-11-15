@@ -1,1 +1,1 @@
-include ':app', ':core', ':easeui', ':RxTools-library'
+include ':app', ':core', ':easeui', ':RxTools-library', ':banner'

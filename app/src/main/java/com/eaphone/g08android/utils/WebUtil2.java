@@ -342,11 +342,10 @@ public boolean shouldOverrideUrlLoading(final WebView view, String url) {
         @Override
         public void onPayResult(final H5PayResultModel result) {
             final String url=result.getReturnUrl();
-
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if(url ==null){
+                        if(url == null){
                             mWebView.goBack();
                         }else {
                             view.loadUrl(url);

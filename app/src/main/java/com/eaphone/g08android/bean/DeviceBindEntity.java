@@ -10,8 +10,6 @@ package com.eaphone.g08android.bean;
  * 修改备注：
  */
 public class DeviceBindEntity {
-
-
     /**
      * product_id : string
      * serial_number : string

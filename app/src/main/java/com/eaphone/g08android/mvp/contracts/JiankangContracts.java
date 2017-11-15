@@ -31,14 +31,12 @@ import java.util.List;
 public interface JiankangContracts {
 
     //健康首页
-
     interface HealthyView extends CoreBaseView {
         void getAnalysis(ResultBase<List<Healthy>> result);
-
         void getFamilyMember(ResultBase<List<Family>> result);
     }
 
-    abstract class HealthyPresenter extends CoreBasePresenter< HealthyView> {
+    abstract class HealthyPresenter extends CoreBasePresenter<HealthyView> {
         public abstract void analysis(HealthyDataEnity data,String userId);
 
         public abstract void familyMember();

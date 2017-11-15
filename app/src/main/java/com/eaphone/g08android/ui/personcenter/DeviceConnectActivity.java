@@ -221,23 +221,25 @@ public class DeviceConnectActivity extends CoreBaseActivity<BindG08Presenter> im
             } else if ("already_bond_other_device".equals(result.getData())) {
                 showToast("检测到您已绑定该类型设备，请更换用户绑定");
                 DeviceConnectActivity.this.finish();
-            }else if("already_bond_by_other".equals(result.getData())){
-                AlertDialog dialog = initAlertDialog("","该设备已被绑定，如需解绑请联系客服。客服电话：400-621-1136")
-                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent();
-                        intent.setAction(Intent.ACTION_CALL);
-                        intent.setData(Uri.parse("tel:400-621-1136"));
-                        startActivity(intent);
-                        DeviceConnectActivity.this.finish();
-                    }
-                }).create();
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.show();
             }
         } else {
-            showToast(result.getMessage());
+            if("already_bond_by_other".equals(result.getData())){
+                AlertDialog dialog = initAlertDialog("","该设备已被绑定，如需解绑请联系客服。客服电话：400-621-1136")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent();
+                                intent.setAction(Intent.ACTION_CALL);
+                                intent.setData(Uri.parse("tel:400-621-1136"));
+                                startActivity(intent);
+                                DeviceConnectActivity.this.finish();
+                            }
+                        }).create();
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
+            }else {
+                showToast(result.getMessage());
+            }
         }
 
     }

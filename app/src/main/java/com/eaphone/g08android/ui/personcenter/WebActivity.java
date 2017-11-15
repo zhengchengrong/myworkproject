@@ -64,11 +64,11 @@ public class WebActivity extends CoreBaseActivity {
         builder = initBackTitle(mTitle).setLeftOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (web_view.canGoBack()) {
-                    web_view.goBack();// 返回前一个页面
-                } else {
+//                if (web_view.canGoBack()) {
+//                    web_view.goBack();// 返回前一个页面
+//                } else {
                     finish();
-                }
+//                }
             }
         });
         builder.build();
@@ -97,11 +97,7 @@ public class WebActivity extends CoreBaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (web_view.canGoBack()) {
-            web_view.goBack();
-        } else {
-            finish();
-        }
+        mWebUtil.isCanGoBack();
     }
     class JavaScriptObject {
 
@@ -110,7 +106,8 @@ public class WebActivity extends CoreBaseActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mWebUtil.isCanGoBack();
+                   mWebUtil.isCanGoBack();
+
                 }
             });
         }

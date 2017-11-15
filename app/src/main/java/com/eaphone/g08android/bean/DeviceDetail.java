@@ -13,8 +13,6 @@ import java.util.List;
  * 修改备注：
  */
 public class DeviceDetail implements Serializable{
-
-
     /**
      * channels : [{"channelId":"019a3300-62cc-11e7-907b-a6006ad3dba0","name":"1"},{"channelId":"019a43ae-62cc-11e7-907b-a6006ad3dba0","name":"2"}]
      * id : 59a7cc59d8e78f0ba0364f70
@@ -24,7 +22,6 @@ public class DeviceDetail implements Serializable{
      * serialNumber : 864074020170707
      * thumbnailUrl : http://static.xxs120.com/images/device/g08.jpg
      */
-
     private String id;
     private String imageUrl;
     private String name;

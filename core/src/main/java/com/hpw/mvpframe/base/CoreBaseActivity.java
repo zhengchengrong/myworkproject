@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +19,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -83,7 +83,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter> extends Supp
         super.onCreate(savedInstanceState);
         //设置状态栏透明
 //        setStatusBarColor();
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init(savedInstanceState);
     }
 
@@ -92,6 +92,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter> extends Supp
 //        setTheme(ThemeUtil.themeArr[SpUtil.getThemeIndex(this)][
 //                SpUtil.getNightModel(this) ? 1 : 0]);
         setTheme(ThemeUtil.themeArr[6][0]);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
         this.setContentView(this.getLayoutId());
         binder = ButterKnife.bind(this);
         mContext = this;

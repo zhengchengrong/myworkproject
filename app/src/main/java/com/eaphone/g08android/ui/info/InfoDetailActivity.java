@@ -152,7 +152,6 @@ public class InfoDetailActivity extends CoreBaseActivity<InfoDetailPresenter> im
         config.setCancelButtonVisibility(false);
         config.setIndicatorVisibility(false);
         config.setTitleText("分享到");
-
         new ShareAction(InfoDetailActivity.this)
                 .withText("hello")
                 .setDisplayList(SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.QZONE,SHARE_MEDIA.SINA)
@@ -178,14 +177,11 @@ public class InfoDetailActivity extends CoreBaseActivity<InfoDetailPresenter> im
                     }
                 })
                 .open(config);
-
-
     }
     @Override
     protected boolean isRegistEventBus() {
         return true;
     }
-
     @Override
     public void receiverEvent(CoreEvent event) {
         super.receiverEvent(event);
@@ -193,17 +189,14 @@ public class InfoDetailActivity extends CoreBaseActivity<InfoDetailPresenter> im
             mPresenter.infoDetail(newsTypeId, id);
         }
     }
-
     @Override
     public Context getContext() {
         return mContext;
     }
-
     @Override
     public void showError(String msg) {
         showToast(msg);
     }
-
     @Override
     public void getInfoDetail(ResultBase<InfoDetail> result) {
         dismiss();
@@ -229,13 +222,9 @@ public class InfoDetailActivity extends CoreBaseActivity<InfoDetailPresenter> im
             showToast(result.getMessage());
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
     }
-
-
-
 }

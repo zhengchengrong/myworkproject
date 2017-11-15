@@ -33,6 +33,7 @@ public class InfoPresenter extends NewsContracts.InfoPresenter {
         },new ExceptionUtils(mView)));
     }
 
+    // 在这里调用了资讯
     @Override
     public void onStart() {
         newsType();

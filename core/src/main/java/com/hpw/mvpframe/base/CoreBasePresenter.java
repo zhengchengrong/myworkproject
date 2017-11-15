@@ -8,7 +8,7 @@ public abstract class CoreBasePresenter< T> {
 
     public void attachVM(T v) {
         this.mView = v;
-        this.onStart();
+        this.onStart(); // 调用了attachVM就调用了onStart
     }
 
     public void detachVM() {

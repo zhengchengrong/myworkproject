@@ -97,7 +97,6 @@ public class SplashActivity extends CoreBaseActivity<InfoPresenter> implements N
                 e.printStackTrace();
             }
 
-
         } else {
             showToast(result.getMessage());
         }
