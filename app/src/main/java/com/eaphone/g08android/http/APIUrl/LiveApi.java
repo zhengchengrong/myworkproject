@@ -1,8 +1,14 @@
 package com.eaphone.g08android.http.APIUrl;
 
-import com.eaphone.g08android.bean.LiveListBean;
+import com.eaphone.g08android.bean.ZhiBoDetailItemBean;
+import com.eaphone.g08android.bean.ZhiboInfo;
+import com.hpw.mvpframe.base.ResultBase;
 
-import retrofit2.http.POST;
+import java.util.List;
+
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -18,10 +24,20 @@ public interface LiveApi {
 
     String LiveiveBASE = "news/v1/";
 
-    @POST(LiveiveBASE + "live")
-    Observable<LiveListBean> loadLiveList();
+    @GET(LiveiveBASE + "live/")
+    Observable<ResultBase<List<ZhiboInfo>>> loadLiveList();
 
 
+    @GET(LiveiveBASE + "live/")
+    Observable<ResultBase<List<ZhiboInfo>>> loadLiveList(@Query("page_index") String page_index, @Query("page_size") String page_size);
+
+
+    @GET(LiveiveBASE + "live/{id}/")
+    Observable<ResultBase<ZhiBoDetailItemBean>> loadLiveDetailList(@Path("id") String id);
+
+
+    @GET(LiveiveBASE + "live/{id}/")
+    Observable<ResultBase<ZhiBoDetailItemBean>> loadLiveDetailList(@Path("id") String id, @Query("page_index") String page_index, @Query("page_size") String page_size);
 
 
 }

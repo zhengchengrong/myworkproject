@@ -59,5 +59,21 @@
     <string name="emojicon_test_name">示例</string>
     <string name="msg_recall_by_user">%1$s 撤回了一条消息</string>
     <string name="cancel_toast_view_actionsheet">取消</string>
+    <string name="title01">标题1</string>
+    <string name="title02">标题2</string>
+    <string name="title03">标题3</string>
+    <string name="unknown">未知</string>
+
+
+    <string name="tips">温馨提示</string>
+    <string name="play_tips">当前处于移动网络，确定打开移动网络播放开关吗？</string>
+    <string name="play_tips_sure">立即打开</string>
+    <string name="download_tips">当前处于移动网络，下载将消耗较多流量，是否继续下载？</string>
+    <string name="download_tips_sure">继续下载</string>
+    <string name="device_not_support">您的设备不支持此功能</string>
+    <string name="unable_to_play">暂时无法播放</string>
+    <string name="now_play">正在播放：%s</string>
+    <string name="music_down_success">下载完成</string>
+    <string name="music_down_error">下载失败</string>
 
 </resources>

@@ -63,4 +63,7 @@
 
     <color name="gray_deep">#666666</color>
     <color name="gray_text">#999999</color>
+
+    <color name="gray_text_2">#333333</color>
+
 </resources>

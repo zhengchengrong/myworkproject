@@ -29,11 +29,16 @@ import android.widget.Toast;
 import com.alipay.sdk.app.H5PayCallback;
 import com.alipay.sdk.app.PayTask;
 import com.alipay.sdk.util.H5PayResultModel;
+import com.eaphone.g08android.bean.WXPayBean;
+import com.eaphone.g08android.wxapi.WXPay;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
+
+import cn.qqtheme.framework.util.LogUtils;
 
 import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
@@ -331,9 +336,27 @@ public class WebUtil2 {
 //
 @Override
 public boolean shouldOverrideUrlLoading(final WebView view, String url) {
+    LogUtils.debug("---------------------"+url);
     if (!(url.startsWith("http") || url.startsWith("https"))) {
         return true;
     }
+
+
+    // 微信支付
+    if(url.contains("Sign=WXPay")){
+        Map<String, String> ss = StringUtils.urlSplit(url);
+        WXPayBean wxPayBean = new WXPayBean();
+        wxPayBean.appid = ss.get("appid");
+        wxPayBean.timestamp = ss.get("timestamp");
+        wxPayBean.sign = ss.get("sign");
+        wxPayBean.partnerid = ss.get("partnerid");
+        wxPayBean.noncestr = ss.get("noncestr");
+        wxPayBean.prepayid = ss.get("prepayid");
+        wxPayBean.pack = "Sign=WXPay";
+        WXPay.UseWXPay(mActivity,wxPayBean);
+       return true;
+    }
+
     /**
      * 推荐采用的新的二合一接口(payInterceptorWithUrl),只需调用一次
      */
@@ -342,6 +365,7 @@ public boolean shouldOverrideUrlLoading(final WebView view, String url) {
         @Override
         public void onPayResult(final H5PayResultModel result) {
             final String url=result.getReturnUrl();
+            LogUtils.debug(result.getResultCode()+":"+url);
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

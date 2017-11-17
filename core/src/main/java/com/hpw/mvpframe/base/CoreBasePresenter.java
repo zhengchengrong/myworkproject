@@ -2,7 +2,7 @@ package com.hpw.mvpframe.base;
 
 import com.hpw.mvpframe.RxManager;
 
-public abstract class CoreBasePresenter< T> {
+public abstract class CoreBasePresenter<T> {
     public T mView;
     public RxManager mRxManager = new RxManager();
 

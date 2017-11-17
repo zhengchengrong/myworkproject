@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_150" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:background="@color/white"
+                >
+
+                <TextView
+                    android:id="@+id/tv_zhibo_detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="S2E06 沟通的七个层次"
+                    android:textColor="@color/txt_black"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_alignBaseline="@+id/tv_zhibo_detail"
+                    android:layout_alignBottom="@+id/tv_zhibo_detail"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:id="@+id/tv_zhibo_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:drawablePadding="@dimen/dp_3"
+                    android:drawableRight="@mipmap/zhibo_down"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="详情"
+                    android:textSize="@dimen/sp_14"
+                    />
+
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_zhibo_detail_gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我是隐藏的内容-补位"
+                android:visibility="gone"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:background="@color/white"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:text="播放全部，已更新201444"
+                    android:textColor="@color/gray_text_2"
+                    android:drawableLeft="@mipmap/zhibo_play_all"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:drawablePadding="@dimen/dp_3"
+                    android:textSize="@dimen/sp_12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:drawablePadding="@dimen/dp_3"
+                    android:drawableLeft="@mipmap/zhibo_sort_dwon"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="倒叙"
+                    android:textSize="@dimen/sp_14"
+                    />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"/>
+        </LinearLayout>
+</LinearLayout>

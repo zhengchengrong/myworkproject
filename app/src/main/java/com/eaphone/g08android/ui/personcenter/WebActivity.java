@@ -101,16 +101,16 @@ public class WebActivity extends CoreBaseActivity {
     }
     class JavaScriptObject {
 
-        @JavascriptInterface
-        public void goBack() {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                   mWebUtil.isCanGoBack();
-
-                }
-            });
-        }
+//        @JavascriptInterface
+//        public void goBack() {
+//            runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                   mWebUtil.isCanGoBack();
+//
+//                }
+//            });
+//        }
 
         @JavascriptInterface
         public void closeWindow() {

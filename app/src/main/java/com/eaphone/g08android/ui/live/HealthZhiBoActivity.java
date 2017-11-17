@@ -1,24 +1,30 @@
 package com.eaphone.g08android.ui.live;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.eaphone.g08android.G08Application;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.eaphone.g08android.R;
-import com.eaphone.g08android.adapter.InfoTypePagerAdapter;
-import com.eaphone.g08android.entity.NewsType;
-import com.eaphone.g08android.entity.NewsTypeDao;
+import com.eaphone.g08android.bean.ZhiboInfo;
+import com.eaphone.g08android.http.ImageLoader;
+import com.eaphone.g08android.mvp.contracts.LiveContracts;
 import com.eaphone.g08android.mvp.presenter.LiveZhiBoPresenter;
-import com.eaphone.g08android.ui.info.InfoTypeFragment;
+import com.eaphone.g08android.utils.Const;
+import com.eaphone.g08android.utils.RecyclerViewHelper;
 import com.hpw.mvpframe.base.CoreBaseActivity;
+import com.hpw.mvpframe.base.ResultBase;
+import com.hpw.mvpframe.utils.ToastUtils;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+
 
 /**
  * 项目名称：心相随
@@ -29,69 +35,114 @@ import java.util.List;
  * 修改时间：2017/11/10 14:43
  * 修改备注：
  */
-public class HealthZhiBoActivity extends CoreBaseActivity<LiveZhiBoPresenter> implements View.OnClickListener {
+public class HealthZhiBoActivity extends CoreBaseActivity<LiveZhiBoPresenter> implements LiveContracts.LiveZhiBoView, SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
 
-    private TabLayout tabs;
-    private ViewPager vp_view;
-    private TextView titlebar_tv;
-    private ImageView titlebar_iv_left;
-
-    private List<Fragment> viewList;
-    private InfoTypePagerAdapter adapter;
-    private List<String> titlList;
-
-    private List<NewsType> newsTypeList;
-    private NewsTypeDao mNewsTypeDao;
-
-
+    @BindView(R.id.rv_news_list)
+    RecyclerView recyclerView;
+    @BindView(R.id.swipe_refresh)
+    SwipeRefreshLayout swipe_refresh;
+    BaseQuickAdapter adapter;
+    private boolean isErr;
+    private int mCurrentCounter = 0;
     @Override
     public int getLayoutId() {
-        return R.layout.activity_live_health_activity;
+        return R.layout.activity_zhibo_activity;
     }
-
     @Override
     public void initView(Bundle savedInstanceState) {
-        tabs = (TabLayout) findViewById(R.id.tabs);
-        vp_view = (ViewPager) findViewById(R.id.vp_view);
-        titlebar_tv = (TextView) findViewById(R.id.titlebar_tv);
-        titlebar_iv_left = (ImageView) findViewById(R.id.titlebar_iv_left);
-        titlebar_iv_left.setVisibility(View.VISIBLE);
-        titlebar_iv_left.setImageResource(R.mipmap.ic_back);
-        titlebar_iv_left.setOnClickListener(this);
+        initBackTitle(LiveConstats.TITLE);
+      //  show(R.string.loading);
+        adapter = new BaseQuickAdapter<ZhiboInfo, BaseViewHolder>(R.layout.zhibo_item) {
+            @Override
+            protected void convert(BaseViewHolder holder, final ZhiboInfo item) {
+                holder.setText(R.id.tv_zhibo_title,item.getTitle());
+                holder.setText(R.id.tv_zhibo_athuo,item.getDescription());
+                holder.setText(R.id.tv_zhibo_num,item.getCreateTime());
+                holder.getView(R.id.rl_zhibo_item).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ToastUtils.showToast(HealthZhiBoActivity.this,"我被点击了");
+                        startActivity(HealthZhiBoDetailActivity.class);
 
-        titlebar_tv.setText("健康直播");
-        viewList = new ArrayList<>();
-        titlList = new ArrayList<>();
-        newsTypeList = new ArrayList<>();
+                    }
+                });
+                ImageLoader.displayImageOther(item.getImage(), (ImageView) holder.getView(R.id.iv_zhibo_pic));
 
-        getNewsTypeList();
 
+            }
+        };
+        adapter.setEnableLoadMore(false);
+        RecyclerViewHelper.initRecyclerViewV(mContext, recyclerView, true, adapter);
+        mPresenter.info();
+        swipe_refresh.setOnRefreshListener(this);
+        adapter.setOnLoadMoreListener(this,recyclerView);
     }
 
-    private void getNewsTypeList() {
-        mNewsTypeDao = G08Application.getInstances().getDaoSession().getNewsTypeDao();
-        newsTypeList = mNewsTypeDao.queryBuilder().list();
 
-        for (int i = 0; i < newsTypeList.size(); i++) {
-            titlList.add(newsTypeList.get(i).getName());
-            InfoTypeFragment info = new InfoTypeFragment();
-            Bundle bun = new Bundle();
-            bun.putString("newsTypeId", newsTypeList.get(i).getId());
-            info.setArguments(bun);
-            viewList.add(info);
-        }
-
-        adapter = new InfoTypePagerAdapter(this.getSupportFragmentManager(), viewList, titlList);
-        vp_view.setAdapter(adapter);
-        tabs.setupWithViewPager(vp_view);//将TabLayout和ViewPager关联起来。
+    @Override
+    public Context getContext() {
+        return null;
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.titlebar_iv_left:
-                finish();
-                break;
+    public void showError(String msg) {
+        isErr = true;
+        showToast(msg);
+    }
+
+
+
+    // 刷新界面
+    @Override
+    public void onRefresh() {
+        mPresenter.info();
+        adapter.setEnableLoadMore(false);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mPresenter.info();
+                swipe_refresh.setRefreshing(false);
+                adapter.setEnableLoadMore(true);
+            }
+        }, Const.DELAYMILLIS);
+    }
+    // 加载更多
+    @Override
+    public void onLoadMoreRequested() {
+        swipe_refresh.setEnabled(false);
+        if (mCurrentCounter < 10) {
+            adapter.loadMoreEnd(true);
+            swipe_refresh.setEnabled(true);
+        } else {
+            if (mCurrentCounter >= 10) {
+                if (isErr) {
+                    isErr = false;
+                    adapter.loadMoreFail();
+                } else {
+                    adapter.loadMoreEnd(false);
+                    mPresenter.infoMore();
+                }
+            } else {
+                adapter.loadMoreEnd(true);
+            }
+            swipe_refresh.setEnabled(true);
         }
+    }
+
+    @Override
+    public void getInfo(ResultBase<List<ZhiboInfo>> bean) {
+        if (bean.isSuccess()) {
+            mCurrentCounter = bean.getData().size();
+            adapter.setNewData(bean.getData());
+        } else {
+            showToast(bean.getMessage());
+        }
+      swipe_refresh.setEnabled(true);
+
+    }
+
+    @Override
+    public void getInfoMore(ResultBase<List<ZhiboInfo>> bean) {
+
     }
 }

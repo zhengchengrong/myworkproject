@@ -1,8 +1,7 @@
 package com.eaphone.g08android.mvp.contracts;
 
-import com.eaphone.g08android.bean.Family;
-import com.eaphone.g08android.bean.HealthyDataEnity;
-import com.eaphone.g08android.bean.LiveListBean;
+import com.eaphone.g08android.bean.ZhiBoDetailItemBean;
+import com.eaphone.g08android.bean.ZhiboInfo;
 import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
 import com.hpw.mvpframe.base.ResultBase;
@@ -18,7 +17,9 @@ import java.util.List;
  * 修改时间：2017/11/10 14:47
  * 修改备注：
  */
-public interface LiveContracts { // 定义一个模块的接口类，里面是P和V的接口集合。
+// 管理一个模块的P和V的接口
+public interface LiveContracts {
+    // 定义一个模块的接口类，里面是P和V的接口集合。
 
     // 1.定义个接口View,作为泛型传递给P
      interface LiveHealthView extends CoreBaseView{
@@ -27,24 +28,33 @@ public interface LiveContracts { // 定义一个模块的接口类，里面是P�
 
 
      abstract class LiveHealthPresenter extends CoreBasePresenter<LiveHealthView> {
+
     }
 
 
     interface LiveZhiBoView extends CoreBaseView{
+        // 结果获取,更新界面
+        void getInfo(ResultBase<List<ZhiboInfo>> bean);
+        void getInfoMore(ResultBase<List<ZhiboInfo>> bean);
 
     }
     abstract class LiveZhiBoPresenter extends CoreBasePresenter<LiveZhiBoView> {
+        // 逻辑操作，比如访问网络
+        public abstract void info();
+        public abstract void infoMore();
     }
 
-    // 直播首页
-    interface LiveHealthFragmentView extends CoreBaseView {
-       void getLiveList(LiveListBean result);
-       void getFamilyMember(ResultBase<List<Family>> result);
-    }
-    abstract class LiveHealthFragmentPresenter extends CoreBasePresenter<LiveHealthFragmentView> {
-        public abstract void analysis(HealthyDataEnity data, String userId);
+    interface LiveZhiBoDetailView extends CoreBaseView{
+        // 结果获取,更新界面
+        void getInfo(ResultBase<ZhiBoDetailItemBean> bean);
+        void getInfoMore(ResultBase<ZhiBoDetailItemBean> bean);
 
-        public abstract void familyMember();
     }
+    abstract class LiveZhiBoDetailPresenter extends CoreBasePresenter<LiveZhiBoDetailView> {
+        // 逻辑操作，比如访问网络
+        public abstract void info(String id);
+        public abstract void infoMore(String id);
+    }
+
 
 }

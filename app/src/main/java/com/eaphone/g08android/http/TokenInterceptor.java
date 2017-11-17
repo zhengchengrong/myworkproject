@@ -21,7 +21,6 @@ import okio.Buffer;
  */
 
 public class TokenInterceptor implements Interceptor {
-
     @NonNull
     private static String _parseParams(RequestBody body, Buffer requestBuffer) throws UnsupportedEncodingException {
         if (body.contentType() != null && !body.contentType().toString().contains("multipart")) {
@@ -29,11 +28,10 @@ public class TokenInterceptor implements Interceptor {
         }
         return "null";
     }
-
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request original = chain.request();
-
+        String s = PreferencesUtils.getSharePreStr(Const.TOKEN);
 
         if (TextUtils.isEmpty(PreferencesUtils.getSharePreStr(Const.TOKEN))) {//如果没有token则直接请求
             return chain.proceed(original);

@@ -90,7 +90,7 @@ dependencies {
     compile 'com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.8'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.parse:parse-android:1.13.1'
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+//    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile project(':easeui')
     compile files('libs/alipaySdk-20170922.jar')
     compile files('libs/umeng_social_api.jar')
@@ -104,4 +104,5 @@ dependencies {
     compile files('libs/zbardecoder.jar')
     compile files('libs/zxing.jar')
     compile project(':banner')
+    compile files('libs/JID3.jar')
 }

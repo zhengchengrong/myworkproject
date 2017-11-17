@@ -47,6 +47,15 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
         <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/Theme.Design.NoActionBar">
@@ -248,6 +257,11 @@
             android:name=".ui.live.LiveHealthDetailActivity"
             android:fitsSystemWindows="true"
             android:label="资讯详细" />
+
+        <activity android:name=".ui.live.HealthZhiBoDetailActivity"
+            android:fitsSystemWindows="true"
+            android:label="直播详细"
+            />
 
         <activity
             android:name=".ui.live.livepic.ShowImageFromWebActivity"
@@ -505,6 +519,15 @@
             android:screenOrientation="behind"
             android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
+
+
+
+        <!--微信支付-->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+
 
     </application>
 

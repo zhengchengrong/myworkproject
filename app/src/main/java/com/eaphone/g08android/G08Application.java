@@ -81,6 +81,8 @@ public class G08Application extends Application {
         // 第三方分享配置
         UMShareAPI.get(this);
         shareInfo();
+
+
     }
 
     private void shareInfo() {

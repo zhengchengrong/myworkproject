@@ -20,7 +20,7 @@
     <ImageView
         android:id="@+id/iv_info_ketang"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_120"
+        android:layout_height="@dimen/dp_105"
         android:src="@mipmap/info_ketang_logo"
         android:scaleType="fitXY"
         android:layout_marginLeft="@dimen/dp_10"
@@ -31,7 +31,7 @@
     <ImageView
         android:id="@+id/iv_info_zhibo"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_120"
+        android:layout_height="@dimen/dp_105"
         android:src="@mipmap/info_zhibo_logo"
         android:scaleType="fitXY"
         android:layout_marginLeft="@dimen/dp_10"
@@ -41,7 +41,7 @@
     <ImageView
         android:id="@+id/iv_info_com"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_120"
+        android:layout_height="@dimen/dp_105"
         android:src="@mipmap/info_com_logo"
         android:scaleType="fitXY"
         android:layout_marginLeft="@dimen/dp_10"

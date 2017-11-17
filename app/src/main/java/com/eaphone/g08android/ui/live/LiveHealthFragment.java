@@ -56,8 +56,6 @@ public class LiveHealthFragment extends CoreBaseFragment implements View.OnClick
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         images.add("http://img.taopic.com/uploads/allimg/140107/234764-14010F0310582.jpg");
-        images.add("http://img.zcool.cn/community/01638059302785a8012193a36096b8.jpg@2o.jpg");
-        images.add("http://tupian.enterdesk.com/2015/xll/10/5/Sanji3.jpg");
         //设置图片集合
         banner.setImages(images);
         //banner设置方法全部调用完毕时最后调用
@@ -74,10 +72,10 @@ public class LiveHealthFragment extends CoreBaseFragment implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_info_zhibo:
-                startActivity(HealthClassRoomActivity.class);
+                startActivity(HealthZhiBoActivity.class);
                 break;
             case R.id.iv_info_ketang:
-                startActivity(HealthZhiBoActivity.class);
+                startActivity(HealthClassRoomActivity.class);
                 break;
             case R.id.iv_info_com:
                 ToastUtils.showToast(mContext,"交流群");

@@ -14,16 +14,16 @@ public class IApi {
 
     public static final String TEST = "http://192.168.1.238:8048/";
     public static final String MAIN = "https://api.xinxiangsui.com.cn";
-    public static final String MAIN_URL = MAIN;
+    public static final String MAIN_URL = TEST;
 
     //预约挂号
     public static final String URL_APPOINMENT = "http://open.eaphonetech.com/doctor-web/v1/bookingRegister/hospital.htm?operatorId=EphoneWY&clientUserId=";
     //网络问诊
-    public static final String URL_INQUIRY = "http://open.eaphonetech.com/doctor-web/v1/front/Interrogation/getNetDoctors.htm?name=%E7%BD%91%E7%BB%9C%E9%97%AE%E8%AF%8A&type=wangluo&operatorId=EphoneWY&clientUserId=";
+    public static final String URL_INQUIRY = "http://open.eaphonetech.com/doctor-web/v1/front/Interrogation/getNetDoctors.htm?name=%E7%BD%91%E7%BB%9C%E9%97%AE%E8%AF%8A&type=wangluo&operatorId=EphoneWY&from=app&clientUserId=";
     //挂号记录
     public static final String URL_REGISTION_RECORD = "http://open.eaphonetech.com/doctor-web/v1/bookingRegister/registerList.htm?operatorId=EphoneWY&clientUserId=";
     //我的预约
-    public static final String URL_MY_INQUIRY = "http://open.eaphonetech.com/doctor-web/v1/front/Interrogation/askRecord.htm?name=%E7%BD%91%E7%BB%9C%E9%97%AE%E8%AF%8A&sid=0&operatorId=EphoneWY&clientUserId=";
+    public static final String URL_MY_INQUIRY = "http://open.eaphonetech.com/doctor-web/v1/front/Interrogation/askRecord.htm?name=%E7%BD%91%E7%BB%9C%E9%97%AE%E8%AF%8A&sid=0&operatorId=EphoneWY&from=app&clientUserId=";
     //我的诊疗卡
     public static final String URL_MEDICAL_CARD = "http://open.eaphonetech.com/doctor-web/v1/front/card/myCard.htm?operatorId=EphoneWY&clientUserId=";
     //我的订单

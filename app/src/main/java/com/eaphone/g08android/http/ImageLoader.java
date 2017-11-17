@@ -46,6 +46,9 @@ public class ImageLoader {
         displayImage(url, imageView, R.mipmap.ic_default);
     }
 
+    public static void displayImageOther(String url, ImageView imageView) {
+        displayImage(url, imageView, R.drawable.no_banner);
+    }
     public static void displayLocalImage(Uri uri, ImageView imageView) {
         Glide.with(contextInstance)
                 .load(uri)
