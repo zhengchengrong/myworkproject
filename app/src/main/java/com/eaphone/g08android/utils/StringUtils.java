@@ -87,7 +87,7 @@ public class StringUtils {
     private static String TruncateUrlPage(String strURL){
         String strAllParam=null;
         String[] arrSplit=null;
-        strURL=strURL.trim().toLowerCase();
+        strURL=strURL.trim();
         arrSplit=strURL.split("[?]");
         if(strURL.length()>1){
             if(arrSplit.length>1){

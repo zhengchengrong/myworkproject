@@ -9,34 +9,34 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.SeekBar;
 
+import com.eaphone.g08android.ui.live.HealthZhiBoDetailActivity;
+
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Player implements OnBufferingUpdateListener, OnCompletionListener,
-        OnPreparedListener {
+        OnPreparedListener{
 
-	public MediaPlayer mediaPlayer; // 媒体播放器
-	private SeekBar seekBar; // 拖动条
-	private Timer mTimer = new Timer(); // 计时器
+	public MediaPlayer mediaPlayer;
+	private SeekBar seekBar;
+	private Timer mTimer = new Timer();
 
-	// 初始化播放器
+
 	public Player(SeekBar seekBar) {
 		super();
 		this.seekBar = seekBar;
 		try {
 			mediaPlayer = new MediaPlayer();
-			mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);// 设置媒体流类型
+			mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 			mediaPlayer.setOnBufferingUpdateListener(this);
 			mediaPlayer.setOnPreparedListener(this);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// 每一秒触发一次
 		mTimer.schedule(timerTask, 0, 1000);
 	}
 
-	// 计时器
 	TimerTask timerTask = new TimerTask() {
 
 		@Override
@@ -44,7 +44,7 @@ public class Player implements OnBufferingUpdateListener, OnCompletionListener,
 			if (mediaPlayer == null)
 				return;
 			if (mediaPlayer.isPlaying() && seekBar.isPressed() == false) {
-				handler.sendEmptyMessage(0); // 发送消息
+				handler.sendEmptyMessage(0);
 			}
 		}
 	};
@@ -54,7 +54,6 @@ public class Player implements OnBufferingUpdateListener, OnCompletionListener,
 			int position = mediaPlayer.getCurrentPosition();
 			int duration = mediaPlayer.getDuration();
 			if (duration > 0) {
-				// 计算进度（获取进度条最大刻度*当前音乐播放位置 / 当前音乐时长）
 				long pos = seekBar.getMax() * position / duration;
 				seekBar.setProgress((int) pos);
 			}
@@ -66,15 +65,17 @@ public class Player implements OnBufferingUpdateListener, OnCompletionListener,
 	}
 
 	/**
-	 * 
-	 * @param url
-	 *            url地址
 	 */
-	public void playUrl(String url) {
+	public void playUrl(int type,String path) {
 		try {
 			mediaPlayer.reset();
-			mediaPlayer.setDataSource(url); // 设置数据源
-			mediaPlayer.prepare(); // prepare自动播放
+			if(type == HealthZhiBoDetailActivity.ON_LINE){
+				mediaPlayer.setDataSource(HealthZhiBoDetailActivity.datas.get(HealthZhiBoDetailActivity.currentListItme).getUrl());
+			}else{
+				mediaPlayer.setDataSource(path);
+			}
+			mediaPlayer.prepare();
+			// mediaPlayer.start();
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (SecurityException e) {
@@ -86,12 +87,12 @@ public class Player implements OnBufferingUpdateListener, OnCompletionListener,
 		}
 	}
 
-	// 暂停
 	public void pause() {
-		mediaPlayer.pause();
+		if(mediaPlayer.isPlaying()) {
+			mediaPlayer.pause();
+		}
 	}
 
-	// 停止
 	public void stop() {
 		if (mediaPlayer != null) {
 			mediaPlayer.stop();
@@ -111,9 +112,6 @@ public class Player implements OnBufferingUpdateListener, OnCompletionListener,
 		Log.e("mediaPlayer", "onCompletion");
 	}
 
-	/**
-	 * 缓冲更新
-	 */
 	@Override
 	public void onBufferingUpdate(MediaPlayer mp, int percent) {
 		seekBar.setSecondaryProgress(percent);
@@ -121,5 +119,6 @@ public class Player implements OnBufferingUpdateListener, OnCompletionListener,
 				* mediaPlayer.getCurrentPosition() / mediaPlayer.getDuration();
 		Log.e(currentProgress + "% play", percent + " buffer");
 	}
+
 
 }

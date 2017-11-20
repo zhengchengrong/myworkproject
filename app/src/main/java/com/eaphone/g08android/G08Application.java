@@ -14,6 +14,7 @@ import com.eaphone.g08android.utils.CrashExceptionUtils;
 import com.eaphone.g08android.utils.FetchPatchHandler;
 import com.eaphone.g08android.utils.PreferencesUtils;
 import com.hyphenate.chatuidemo.DemoHelper;
+import com.liulishuo.filedownloader.FileDownloader;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.tinker.loader.app.ApplicationLike;
 import com.tinkerpatch.sdk.TinkerPatch;
@@ -82,6 +83,10 @@ public class G08Application extends Application {
         UMShareAPI.get(this);
         shareInfo();
 
+        /**
+         * 仅仅是缓存Application的Context，不耗时
+         */
+        FileDownloader.setup(getInstances());
 
     }
 

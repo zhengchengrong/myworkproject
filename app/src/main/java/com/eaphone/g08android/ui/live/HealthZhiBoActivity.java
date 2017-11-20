@@ -19,7 +19,6 @@ import com.eaphone.g08android.utils.Const;
 import com.eaphone.g08android.utils.RecyclerViewHelper;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.base.ResultBase;
-import com.hpw.mvpframe.utils.ToastUtils;
 
 import java.util.List;
 
@@ -61,8 +60,9 @@ public class HealthZhiBoActivity extends CoreBaseActivity<LiveZhiBoPresenter> im
                 holder.getView(R.id.rl_zhibo_item).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ToastUtils.showToast(HealthZhiBoActivity.this,"我被点击了");
-                        startActivity(HealthZhiBoDetailActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("zhiboId",item.getId());
+                        startActivity(HealthZhiBoDetailActivity.class,bundle);
 
                     }
                 });

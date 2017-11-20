@@ -1,6 +1,14 @@
 package com.eaphone.g08android.mvp.presenter;
 
+import com.eaphone.g08android.bean.LiveHome;
+import com.eaphone.g08android.http.APIUrl.LiveApi;
+import com.eaphone.g08android.http.RxJavaRetrofitService;
 import com.eaphone.g08android.mvp.contracts.LiveContracts;
+import com.hpw.mvpframe.base.ResultBase;
+import com.hpw.mvpframe.utils.ExceptionUtils;
+import com.hpw.mvpframe.utils.RxUtil;
+
+import rx.functions.Action1;
 
 /**
  * 项目名称：心相随
@@ -21,4 +29,14 @@ public class LiveHealthPresenter extends LiveContracts.LiveHealthPresenter {
     }
 
 
+    @Override
+    public void info() {
+        mRxManager.add(RxJavaRetrofitService.getInstance().create(LiveApi.class).loadHome()
+                .compose(RxUtil.<ResultBase<LiveHome>>rxSchedulerHelper()).subscribe(new Action1<ResultBase<LiveHome>>() {
+                    @Override
+                    public void call(ResultBase<LiveHome> listResultBase) {
+                        mView.getInfo(listResultBase);
+                    }
+                }, new ExceptionUtils(mView)));
+    }
 }

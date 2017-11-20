@@ -1,11 +1,14 @@
 package com.eaphone.g08android.mvp.contracts;
 
+import com.eaphone.g08android.bean.LiveHome;
 import com.eaphone.g08android.bean.ZhiBoDetailItemBean;
+import com.eaphone.g08android.bean.ZhiBoGroupItemBean;
 import com.eaphone.g08android.bean.ZhiboInfo;
 import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
 import com.hpw.mvpframe.base.ResultBase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,12 +26,13 @@ public interface LiveContracts {
 
     // 1.定义个接口View,作为泛型传递给P
      interface LiveHealthView extends CoreBaseView{
-
+        void getInfo(ResultBase<LiveHome> bean);
     }
 
 
      abstract class LiveHealthPresenter extends CoreBasePresenter<LiveHealthView> {
-
+         // 逻辑操作，比如访问网络
+         public abstract void info();
     }
 
 
@@ -55,6 +59,17 @@ public interface LiveContracts {
         public abstract void info(String id);
         public abstract void infoMore(String id);
     }
+    interface LiveZhiBoGroupView extends CoreBaseView{
+        // 结果获取,更新界面
+        void getInfo(ResultBase<ArrayList<ZhiBoGroupItemBean>> bean);
+        void getInfoMore(ResultBase<ArrayList<ZhiBoGroupItemBean>> bean);
 
+    }
+
+    abstract class LiveZhiBoGroupPresenter extends CoreBasePresenter<LiveZhiBoGroupView> {
+        // 逻辑操作，比如访问网络
+        public abstract void info();
+        public abstract void infoMore();
+    }
 
 }

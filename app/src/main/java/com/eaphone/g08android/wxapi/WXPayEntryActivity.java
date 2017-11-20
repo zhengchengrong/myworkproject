@@ -3,8 +3,9 @@ package com.eaphone.g08android.wxapi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
+import com.eaphone.g08android.ui.personcenter.WebPayActivity;
+import com.hpw.mvpframe.utils.ToastUtils;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.openapi.IWXAPI;
@@ -34,12 +35,21 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
     public void onReq(BaseReq req) {
     }
 
-    public static int index = 0;
-    public static int order_id = -1;
-
     @Override
     public void onResp(BaseResp resp) {
-       Log.d("zcr",resp.toString());
+        if(resp.errCode == 0){
+            // 支付成功
+            ToastUtils.showToast(this,"支付成功");
+        }else if(resp.errCode == -1){
+            // 支付失败
+            ToastUtils.showToast(this,"支付失败");
+        }else if(resp.errCode == -2){
+            //取消支付
+            ToastUtils.showToast(this,"取消支付");
+        }
+        Intent intent = new Intent(this, WebPayActivity.class);
+        startActivity(intent);
+        finish();
 
     }
 }
