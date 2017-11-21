@@ -91,15 +91,11 @@ public class LiveHealthFragment extends CoreBaseFragment<LiveHealthPresenter> im
             case R.id.iv_info_com:
                 startActivity(HealthZhiBoGroupActivity.class);
                 break;
-
         }
     }
-
     @Override
     public void showError(String msg) {
-
     }
-
     @Override
     public void getInfo(ResultBase<LiveHome> bean) {
         if(bean.isSuccess()){

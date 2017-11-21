@@ -38,6 +38,7 @@ public class RxJavaRetrofitService {
 
     private RxJavaRetrofitService() {
 
+
         OkHttpClient client = new OkHttpClient.Builder()
                 .readTimeout(DEFAULT_READ_TIME_OUT, TimeUnit.SECONDS)
                 .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)

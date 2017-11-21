@@ -3,6 +3,7 @@ package com.eaphone.g08android.ui.personcenter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -16,14 +17,17 @@ import com.eaphone.g08android.http.APIUrl.IApi;
 import com.eaphone.g08android.mvp.contracts.PassportContracts;
 import com.eaphone.g08android.mvp.presenter.SetPresenter;
 import com.eaphone.g08android.ui.MainActivity;
+import com.eaphone.g08android.ui.live.LiveConstats;
 import com.eaphone.g08android.ui.login.LoginActivity;
 import com.eaphone.g08android.utils.Const;
+import com.eaphone.g08android.utils.FileUtils;
 import com.eaphone.g08android.utils.FormatUtil;
 import com.eaphone.g08android.utils.PreferencesUtils;
 import com.hpw.mvpframe.AppManager;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.base.ResultBase;
 import com.hpw.mvpframe.utils.AppUtils;
+import com.hpw.mvpframe.utils.ToastUtils;
 import com.tencent.tauth.Tencent;
 
 import java.util.Set;
@@ -60,6 +64,10 @@ public class SetActivity extends CoreBaseActivity<SetPresenter> implements Passp
 
     @BindView(R.id.tv_version)
     TextView mTvVersion;
+
+    @BindView(R.id.tv_clear)
+    TextView tv_clear;
+
     private Tencent mTencent;
     @Override
     public int getLayoutId() {
@@ -74,6 +82,7 @@ public class SetActivity extends CoreBaseActivity<SetPresenter> implements Passp
         mLLChange.setOnClickListener(this);
         mTvAbout.setOnClickListener(this);
         mLLUpdate.setOnClickListener(this);
+        tv_clear.setOnClickListener(this);
         if (IApi.MAIN_URL.equals(IApi.TEST)) {
 
             mTvVersion.setText(AppUtils.getAppVersionName(this) + "内网");
@@ -135,6 +144,12 @@ public class SetActivity extends CoreBaseActivity<SetPresenter> implements Passp
                 break;
             case R.id.linear_update:
 //                lastVersion();
+                break;
+
+            case R.id.tv_clear:
+                // 清除缓存
+                FileUtils.deleteDir(Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+LiveConstats.JYJK);
+                ToastUtils.showToast(this,"已清除缓存");
                 break;
         }
     }

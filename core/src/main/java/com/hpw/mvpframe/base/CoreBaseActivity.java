@@ -68,6 +68,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter> extends Supp
     public void show(int resStringId) {
         if (loadingDialog == null){
             loadingDialog = ProgressDialog.show(this, null, getString(resStringId));
+            loadingDialog.setCanceledOnTouchOutside(true);
         }
         else loadingDialog.show();
 

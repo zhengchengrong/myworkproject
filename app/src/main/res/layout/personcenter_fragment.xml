@@ -175,6 +175,24 @@
 
                 <TextView style="@style/setting_tv_icon" />
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative_fenxiang"
+                style="@style/setting_relative"
+                android:layout_marginTop="0.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_fenxiang"
+                    style="@style/setting_iv"
+                    android:src="@mipmap/my_center_sharing" />
+
+                <TextView
+                    android:id="@+id/tv_fenxiang"
+                    style="@style/setting_tv"
+                    android:layout_toRightOf="@+id/iv_fenxiang"
+                    android:text="分享好友" />
+
+                <TextView style="@style/setting_tv_icon" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/relative_kefu"

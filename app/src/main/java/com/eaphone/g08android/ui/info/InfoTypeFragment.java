@@ -16,6 +16,7 @@ import com.eaphone.g08android.bean.Info;
 import com.eaphone.g08android.http.ImageLoader;
 import com.eaphone.g08android.mvp.contracts.NewsContracts;
 import com.eaphone.g08android.mvp.presenter.InfoTypePresenter;
+import com.eaphone.g08android.ui.live.LiveHealthDetailActivity;
 import com.eaphone.g08android.utils.Const;
 import com.eaphone.g08android.utils.EventCode;
 import com.eaphone.g08android.utils.RecyclerViewHelper;
@@ -94,7 +95,7 @@ public class InfoTypeFragment extends CoreBaseFragment<InfoTypePresenter>
                         Bundle bundle = new Bundle();
                         bundle.putString("id", item.getId());
                         bundle.putString("newsTypeId", newsTypeId);
-                        startActivity(InfoDetailActivity.class, bundle);
+                        startActivity(LiveHealthDetailActivity.class, bundle);
                     }
                 });
             }

@@ -91,9 +91,9 @@ public class G08Application extends Application {
     }
 
     private void shareInfo() {
-        PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
-        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
-        PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
+        PlatformConfig.setWeixin("wx45904aba60ff29eb", "e417a8ae4edb5bfff5a886aed943067e");
+        PlatformConfig.setQQZone("1106130236", "frThnCq8m9g4pBki");
+        PlatformConfig.setSinaWeibo("795798711", "6ee47bf0ed87e4ed1d79bbcdd257b5ff", "http://sns.whalecloud.com");
     }
 
     private void huanxin() {

@@ -3,6 +3,7 @@ package com.eaphone.g08android.http.APIUrl;
 import com.eaphone.g08android.bean.FileResult;
 import com.eaphone.g08android.bean.MessageFirstLevel;
 import com.eaphone.g08android.bean.ReadStatusEntity;
+import com.eaphone.g08android.bean.ShareInfoEntity;
 import com.hpw.mvpframe.base.ResultBase;
 
 import java.util.List;
@@ -17,6 +18,8 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
+
+import static com.eaphone.g08android.http.APIUrl.CommonApi.BASECOMMOM;
 
 /**
  * 项目名称：心相随
@@ -51,4 +54,11 @@ public interface CommonApi {
 
     @GET(BASECOMMOM + "user/message/type/{type}/unreadCount")
     Observable<ResultBase<Integer>> loadMessageCount(@Path("type") String type);
+
+
+    // app分享
+    @GET(BASECOMMOM + "app/shareInfo/")
+    Observable<ResultBase<ShareInfoEntity>> loadShareInfo();
+
+
 }

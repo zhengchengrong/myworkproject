@@ -8,7 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -31,7 +30,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.eaphone.g08android.G08Application;
 import com.eaphone.g08android.R;
 import com.eaphone.g08android.bean.ZhiBoDetailItemBean;
 import com.eaphone.g08android.mvp.contracts.LiveContracts;
@@ -47,10 +45,6 @@ import com.eaphone.g08android.utils.TimeUtils;
 import com.eaphone.g08android.utils.util.Player;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.base.ResultBase;
-import com.hpw.mvpframe.utils.ToastUtils;
-import com.liulishuo.filedownloader.BaseDownloadTask;
-import com.liulishuo.filedownloader.FileDownloadListener;
-import com.liulishuo.filedownloader.FileDownloader;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
@@ -70,7 +64,7 @@ import java.util.List;
  * 修改时间：2017/11/16 14:04
  * 修改备注：
  */
-public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailPresenter> implements LiveContracts.LiveZhiBoDetailView,View.OnClickListener, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener{
+public class HealthZhiBoDetailActivity2 extends CoreBaseActivity<LiveZhiBoDetailPresenter> implements LiveContracts.LiveZhiBoDetailView,View.OnClickListener, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener{
     private Banner banner;
     private ArrayList<String> images = new ArrayList<String>();
 
@@ -119,8 +113,6 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
     boolean  isPause = false;
 
     private String description_url;
-
-    TextView iv_play_title;
 
     PopupWindow window;
     View popupView;
@@ -180,8 +172,7 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
             protected void convert(final BaseViewHolder holder, final ZhiBoDetailItemBean.ClassesBean item) {
 
                 iv_play_small_jindu = holder.getView(R.id.iv_play_small_jindu);
-                iv_play_title = (TextView) holder.getView(R.id.iv_play_title);
-                iv_play_title.setText(item.getTitle());
+                holder.setText(R.id.iv_play_title,item.getTitle());
                 holder.setText(R.id.iv_play_small_title,"时长:"+ TimeUtils.formatSeconds(item.getTotal_seconds()));
                 iv_play_small_jindu.setText(item.getLocProgress());
                 ImageView iv_play_item =holder.getView(R.id.iv_play_item);
@@ -197,7 +188,7 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
                             // adapter.setNewData(datas);
                             adapter.notifyDataSetChanged(); // 用notify不会显示加载中，setNewData会显示加载中。
                             if(isBackgroudPlay) {
-                                PlayerService.startCommand(HealthZhiBoDetailActivity.this, LiveConstats.ACTION_MEDIA_PLAY_PAUSE);
+                                PlayerService.startCommand(HealthZhiBoDetailActivity2.this, LiveConstats.ACTION_MEDIA_PLAY_PAUSE);
                             }else{
                                 player.pause();
                             }
@@ -210,34 +201,30 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
                             datas.set(currentListItme,item);
                             //adapter.setNewData(datas);
                             adapter.notifyDataSetChanged();
+
                            if(lastListItem == currentListItme){
                                player.play();
                                return;
                            }
                             if(isBackgroudPlay){
                                 // 有背景播放
-                                PlayerService.startCommand(HealthZhiBoDetailActivity.this, LiveConstats.ACTION_MEDIA_PLAY);
+                                PlayerService.startCommand(HealthZhiBoDetailActivity2.this, LiveConstats.ACTION_MEDIA_PLAY);
                             }else{
                                 // 如果文件存在，就本地播放
-                                if(FileUtils.exitSDCard()){
-                                    String s = Environment.getExternalStorageDirectory().getAbsolutePath();
-                                    final String path = s+"/"+LiveConstats.JYJK+"/"+zhiboId+"/"+item.getTitle()+".mp3";
-                                    // SD卡如果存在
-                                    File file = new File(path);
-                                    if(FileUtils.isFileExits(file)){
-                                        new Thread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                player.playUrl(ON_LOC,path);
-                                            }
-                                        }).start();
-                                    }else {
-                                        checkNetwork(item.getUrl(),path);
+                                final String path = "/storage/emulated/0/yfjk/"+zhiboId+"/"+item.getTitle()+".mp3";
+                                File file = new File(path);
+                                if(FileUtils.isFileExits(file)){
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            player.playUrl(ON_LOC,path);
+                                        }
+                                    }).start();
+                                }else {
+                                    checkNetwork();
 
-                                    }
-                                }else{
-                                    ToastUtils.showToast(HealthZhiBoDetailActivity.this,"SD卡不存在");
                                 }
+
                             }
                         }
 
@@ -246,20 +233,16 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
                     }
                 });
                 if(!item.isFouce()){
-                    iv_play_title.setTextColor(getResources().getColor(R.color.txt_gray));
-
                     iv_play_item.setImageResource(R.mipmap.zhibo_play_logo);
                 }else{
                     iv_play_item.setImageResource(R.mipmap.zhibo_reading_logo);
-                    iv_play_title.setTextColor(getResources().getColor(R.color.zhibo_text_color));
-
                 }
 
                 holder.getView(R.id.iv_zhibo_detail).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         //showToast("点击详情");
-                         AlertDialog.Builder builder = new AlertDialog.Builder(HealthZhiBoDetailActivity.this);
+                         AlertDialog.Builder builder = new AlertDialog.Builder(HealthZhiBoDetailActivity2.this);
                          LayoutInflater inflater = getLayoutInflater();
                          View layout = inflater.inflate(R.layout.heath_zhibo_webview, null);//获取自定义布局
                          WebView webView = (WebView) layout.findViewById(R.id.wv_heath_zhibo);
@@ -445,7 +428,7 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                Intent intent = new Intent(HealthZhiBoDetailActivity.this, WebActivity.class);
+                Intent intent = new Intent(HealthZhiBoDetailActivity2.this, WebActivity.class);
                 intent.putExtra("url",description_url);
                 startActivity(intent);
             }
@@ -524,75 +507,49 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
         }
     }
 
-    private void checkNetwork(final String url, final String path) {
+    private void checkNetwork() {
+
 
         if (NetUtil.isWiFi(this)) {
-           downAndPlay(url,path);
+            // 是wifi 环境
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                player.playUrl(ON_LINE,"");
+                }
+            }).start();
         } else {
-                new AlertDialog.Builder(HealthZhiBoDetailActivity.this)
+
+            if(!isWifi){
+                isWifi = true;
+                new AlertDialog.Builder(HealthZhiBoDetailActivity2.this)
                         .setTitle("播放")
                         .setMessage("当前是移动网络，耗费流量较多，确定吗")
                         .setPositiveButton("是", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                downAndPlay(url,path);
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        player.playUrl(ON_LINE,"");
+                                    }
+                                }).start();
                             }
                         })
                         .setNegativeButton("否", null)
                         .show();
+            }else{
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        player.playUrl(ON_LINE,"");
+                    }
+                }).start();
+            }
+
 
         }
     }
 
-    public void downAndPlay(String url,String path){
-        FileDownloader.getImpl().create(url)
-                .setPath(path)
-                .setListener(new FileDownloadListener() {
-                    @Override
-                    protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
-                    }
-
-                    @Override
-                    protected void connected(BaseDownloadTask task, String etag, boolean isContinue, int soFarBytes, int totalBytes) {
-                        ToastUtils.showToast(G08Application.getInstances(),"连接中，请稍等...");
-                    }
-                    @Override
-                    protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
-                    }
-
-                    @Override
-                    protected void blockComplete(BaseDownloadTask task) {
-                    }
-
-                    @Override
-                    protected void retry(final BaseDownloadTask task, final Throwable ex, final int retryingTimes, final int soFarBytes) {
-                    }
-                    @Override
-                    protected void completed(BaseDownloadTask task) {
-                        ToastUtils.showToast(G08Application.getInstances(),"下载成功，准备播放");
-                        final String  path = task.getPath(); // 得到下载路径
-                        String  url = task.getUrl();
-
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                player.playUrl(ON_LOC,path);
-                            }
-                        }).start();
-                    }
-                    @Override
-                    protected void paused(BaseDownloadTask task, int soFarBytes, int totalBytes) {
-                    }
-                    @Override
-                    protected void error(BaseDownloadTask task, Throwable e) {
-                        ToastUtils.showToast(G08Application.getInstances(),"下载失败,请检查网络");
-                    }
-                    @Override
-                    protected void warn(BaseDownloadTask task) {
-                    }
-                }).start();
-
-
-    }
 
 }

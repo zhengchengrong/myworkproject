@@ -50,7 +50,7 @@ public class HealthZhiBoActivity extends CoreBaseActivity<LiveZhiBoPresenter> im
     @Override
     public void initView(Bundle savedInstanceState) {
         initBackTitle(LiveConstats.TITLE);
-      //  show(R.string.loading);
+     show(R.string.loading);
         adapter = new BaseQuickAdapter<ZhiboInfo, BaseViewHolder>(R.layout.zhibo_item) {
             @Override
             protected void convert(BaseViewHolder holder, final ZhiboInfo item) {
@@ -61,6 +61,7 @@ public class HealthZhiBoActivity extends CoreBaseActivity<LiveZhiBoPresenter> im
                     @Override
                     public void onClick(View v) {
                         Bundle bundle = new Bundle();
+                      //   bundle.putString("zhiboId",item.getId()); 5a0b9bc4732d00043f24bfec
                         bundle.putString("zhiboId",item.getId());
                         startActivity(HealthZhiBoDetailActivity.class,bundle);
 
@@ -131,6 +132,7 @@ public class HealthZhiBoActivity extends CoreBaseActivity<LiveZhiBoPresenter> im
 
     @Override
     public void getInfo(ResultBase<List<ZhiboInfo>> bean) {
+        dismiss();
         if (bean.isSuccess()) {
             mCurrentCounter = bean.getData().size();
             adapter.setNewData(bean.getData());

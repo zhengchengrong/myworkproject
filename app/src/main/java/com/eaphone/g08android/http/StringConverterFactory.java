@@ -42,6 +42,7 @@ public class StringConverterFactory extends Converter.Factory {
         return new Converter<ResponseBody, String>() {
             @Override
             public String convert(ResponseBody value) throws IOException {
+                Log.i("zcr",value.toString());
                 return value.toString();
             }
         };

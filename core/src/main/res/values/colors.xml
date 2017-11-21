@@ -60,6 +60,8 @@
     <color name="bg_heartrate">#df7086</color>
     <color name="bg_blood_oxygen">#49a5f2</color>
     <color name="bg_temperature">#7ea5e0</color>
+    <color name="zhibo_text_color">#479ae0</color>
+
     <color name="bg_ecg">#df7a7a</color>
 
     <color name="gray_deep">#666666</color>

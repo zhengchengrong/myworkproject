@@ -208,8 +208,11 @@ public class InfoDetailActivity extends CoreBaseActivity<InfoDetailPresenter> im
                 web_view.setVisibility(View.GONE);
             } else {
                 web_view.setVisibility(View.VISIBLE);
+                Log.i("zcr", result.getData().getContent());
                 web_view.loadDataWithBaseURL("", result.getData().getContent(), "text/html", "UTF-8", "");
             }
+
+
 
             if (TextUtils.isEmpty(result.getData().getBanner())) {
                 iv_image.setVisibility(View.GONE);

@@ -91,7 +91,6 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.parse:parse-android:1.13.1'
     compile 'com.liulishuo.filedownloader:library:1.6.8'
-
 //    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile project(':easeui')
     compile files('libs/alipaySdk-20170922.jar')

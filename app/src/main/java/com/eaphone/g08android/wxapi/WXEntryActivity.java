@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.eaphone.g08android.R;
+import com.eaphone.g08android.ui.MainActivity;
 import com.eaphone.g08android.ui.login.LoginActivity;
 import com.eaphone.g08android.utils.Const;
 import com.tencent.mm.sdk.modelbase.BaseReq;
@@ -41,15 +42,19 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     @Override
     public void onResp(BaseResp resp) {
         if(resp instanceof SendAuth.Resp){
-            SendAuth.Resp newResp = (SendAuth.Resp) resp;
+           SendAuth.Resp newResp = (SendAuth.Resp) resp;
             if(newResp.errCode == 0){
                 //获取微信传回的code
                 String code = newResp.code;
                 Log.e("code",code+"   fewfew    "+  newResp.url);
                 WXEntryActivity.this.sendBroadcast(new Intent(Const.WEIXIN_LOGIN).putExtra("code",code));
             }
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
             finish();
 
+        }else{
+            finish();
         }
     }
 }

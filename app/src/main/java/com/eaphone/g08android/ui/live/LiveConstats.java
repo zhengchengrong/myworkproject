@@ -26,4 +26,8 @@ public class LiveConstats {
     public static final String ACTION_MEDIA_PREVIOUS = "me.wcy.music.ACTION_MEDIA_PREVIOUS";
     public static final String VOLUME_CHANGED_ACTION = "android.media.VOLUME_CHANGED_ACTION";
     public static String GROUP="交流群";
+
+// 保存的文件的文件夹
+    public static String JYJK="jyjk";
+
 }

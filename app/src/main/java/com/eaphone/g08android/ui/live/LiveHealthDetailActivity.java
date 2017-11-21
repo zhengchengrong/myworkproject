@@ -216,10 +216,34 @@ public class LiveHealthDetailActivity extends CoreBaseActivity<InfoDetailPresent
                 web_view.setVisibility(View.GONE);
             } else {
                 web_view.setVisibility(View.VISIBLE);
-                web_view.loadDataWithBaseURL("", result.getData().getContent(), "text/html", "UTF-8", "");
-            }
+              web_view.loadDataWithBaseURL("", result.getData().getContent(), "text/html", "UTF-8", "");
 
-         //  Set<String> imgs = WebUtil.getImgStr(result.getData().getContent());
+                // web_view.loadUrl("http://blog.csdn.net/itachi85/article/details/51190687");
+            }
+            web_view.setWebViewClient(new WebViewClient() {
+                // 网页跳转
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    view.loadUrl(url);
+                    return true;
+                }
+
+                // 网页加载结束
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    // web 页面加载完成，添加监听图片的点击 js 函数
+                    web_view.setImageClickListner();
+                    //解析 HTML
+                    web_view.parseHTML(view);
+                }
+
+                @Override
+                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                    Toast.makeText(LiveHealthDetailActivity.this, "请检查您的网络设置", Toast.LENGTH_SHORT).show();
+                }
+            });
+            // Set<String> imgs = WebUtil.getImgStr(result.getData().getContent());
 
             web_view.setWebViewClient(new WebViewClient() {
                 // 网页跳转

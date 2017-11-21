@@ -44,12 +44,12 @@ public interface LiveApi {
     Observable<ResultBase<List<ZhiboInfo>>> loadLiveList(@Query("page_index") String page_index, @Query("page_size") String page_size);
 
 
-    @GET(LiveiveBASE + "live/{liveId}/")
-    Observable<ResultBase<ZhiBoDetailItemBean>> loadLiveDetailList(@Path("liveId") String liveId);
+    @GET(LiveiveBASE + "live/{id}/")
+    Observable<ResultBase<ZhiBoDetailItemBean>> loadLiveDetailList(@Path("id") String liveId);
 
 
-    @GET(LiveiveBASE + "live/{liveId}/")
-    Observable<ResultBase<ZhiBoDetailItemBean>> loadLiveDetailList(@Path("liveId") String liveId, @Query("page_index") String page_index, @Query("page_size") String page_size);
+    @GET(LiveiveBASE + "live/{id}/")
+    Observable<ResultBase<ZhiBoDetailItemBean>> loadLiveDetailList(@Path("id") String liveId, @Query("page_index") String page_index, @Query("page_size") String page_size);
 
 
     // 加载交流群
