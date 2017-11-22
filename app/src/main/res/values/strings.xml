@@ -76,4 +76,9 @@
     <string name="music_down_success">下载完成</string>
     <string name="music_down_error">下载失败</string>
 
+
+    <string name="percen_center_copy">复制链接</string>
+    <string name="percen_center_haibao">生成海报</string>
+    <string name="percen_center_save_hai_bao">保存到本地</string>
+
 </resources>

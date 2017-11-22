@@ -61,15 +61,13 @@ public class HealthZhiBoActivity extends CoreBaseActivity<LiveZhiBoPresenter> im
                     @Override
                     public void onClick(View v) {
                         Bundle bundle = new Bundle();
-                      //   bundle.putString("zhiboId",item.getId()); 5a0b9bc4732d00043f24bfec
-                        bundle.putString("zhiboId",item.getId());
+                       bundle.putString("zhiboId",item.getId()); //5a0b9bc4732d00043f24bfec
+                       // bundle.putString("zhiboId","5a0b9bc4732d00043f24bfec");
                         startActivity(HealthZhiBoDetailActivity.class,bundle);
 
                     }
                 });
                 ImageLoader.displayImageOther(item.getImage(), (ImageView) holder.getView(R.id.iv_zhibo_pic));
-
-
             }
         };
         adapter.setEnableLoadMore(false);

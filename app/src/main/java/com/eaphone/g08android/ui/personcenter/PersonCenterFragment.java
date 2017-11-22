@@ -1,11 +1,13 @@
 package com.eaphone.g08android.ui.personcenter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eaphone.g08android.R;
 import com.eaphone.g08android.bean.ShareInfoEntity;
@@ -26,6 +28,8 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 import com.umeng.socialize.shareboard.ShareBoardConfig;
+import com.umeng.socialize.shareboard.SnsPlatform;
+import com.umeng.socialize.utils.ShareBoardlistener;
 
 import butterknife.BindView;
 
@@ -195,9 +199,9 @@ public class PersonCenterFragment extends CoreBaseFragment<CenterPresenter> impl
         }
     }
 
-    public void  shareYoumen(String url,String poster,String description,String title){
+    public void  shareYoumen(final String url, final String poster, String description, final String title){
         UMImage thumb =  new UMImage(getActivity(), R.mipmap.ic_logo);
-        UMWeb web = new UMWeb(url);
+        final UMWeb web = new UMWeb(url);
         web.setTitle(title);//标题
         web.setThumb(thumb);  //缩略图
         web.setDescription(description);//描述
@@ -209,9 +213,44 @@ public class PersonCenterFragment extends CoreBaseFragment<CenterPresenter> impl
         config.setIndicatorVisibility(false);
         config.setTitleText("分享到");
         new ShareAction(mActivity)
-                .withText(title).withMedia(web)
-                .setDisplayList(SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.QZONE,SHARE_MEDIA.SINA)//分享平台
-                .addButton("复制链接","复制链接","umeng_socialize_share_web","umeng_socialize_share_web")
+                .setDisplayList(SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.QQ,SHARE_MEDIA.SINA)//分享平台
+//                .addButton("percen_center_copy","percen_center_copy","zhibo_lianjie","zhibo_lianjie")
+                .addButton("percen_center_haibao","percen_center_haibao","zhibo_haibao","zhibo_haibao")
+                .setShareboardclickCallback(new ShareBoardlistener() {
+                    @Override
+                    public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA share_media) {
+                        if (snsPlatform.mShowWord.equals("percen_center_copy")) {
+//                            ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+//                            // 将文本内容放到系统剪贴板里。
+//                            cm.setText(url);
+//                            Toast.makeText(getActivity(), "已复制到剪切板", Toast.LENGTH_LONG).show();
+//
+                           }else if(snsPlatform.mShowWord.equals("percen_center_haibao")){
+                            Intent intent = new Intent(mActivity,WebShareActivity.class);
+                            intent.putExtra("copy_url",url);
+                            intent.putExtra("url",poster);
+                            startActivity(intent);
+                        }else {
+                                   if (share_media == SHARE_MEDIA.SINA){
+                                       new ShareAction(mActivity).setPlatform(share_media)
+                                               .withText(title).withMedia(web)
+                                               .share();
+                                   }else if (share_media == SHARE_MEDIA.QQ){
+                                       new ShareAction(mActivity).setPlatform(share_media)
+                                               .withText(title).withMedia(web)
+                                               .share();
+                                   }else if(share_media == SHARE_MEDIA.WEIXIN){
+                                       new ShareAction(mActivity).setPlatform(share_media)
+                                               .withText(title).withMedia(web)
+                                               .share();
+                                   }else if(share_media == SHARE_MEDIA.WEIXIN_CIRCLE){
+                                       new ShareAction(mActivity).setPlatform(share_media)
+                                               .withText(title).withMedia(web)
+                                               .share();
+                                   }
+                        }
+                    }
+                })
                 .setCallback(new UMShareListener() {
                     @Override
                     public void onStart(SHARE_MEDIA share_media) {
@@ -234,5 +273,20 @@ public class PersonCenterFragment extends CoreBaseFragment<CenterPresenter> impl
                     }
                 })
                 .open(config);
+
+
     }
+    private ShareBoardlistener shareBoardlistener = new  ShareBoardlistener() {
+
+        @Override
+        public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA share_media) {
+            if (share_media==null){
+                //根据key来区分自定义按钮的类型，并进行对应的操作
+                if (snsPlatform.mKeyword.equals("percen_center_copy")){
+                    Toast.makeText(getActivity(),"add button success",Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }
+    };
 }

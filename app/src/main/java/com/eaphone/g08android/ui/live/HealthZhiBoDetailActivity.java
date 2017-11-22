@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -51,8 +50,6 @@ import com.hpw.mvpframe.utils.ToastUtils;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
-import com.youth.banner.Banner;
-import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
 import java.io.File;
@@ -71,7 +68,6 @@ import java.util.List;
  * 修改备注：
  */
 public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailPresenter> implements LiveContracts.LiveZhiBoDetailView,View.OnClickListener, BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener{
-    private Banner banner;
     private ArrayList<String> images = new ArrayList<String>();
 
     private TextView tv_zhibo_detail;
@@ -119,8 +115,10 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
     boolean  isPause = false;
 
     private String description_url;
-
+    String detail_url;
     TextView iv_play_title;
+
+    private TextView tv_nums;
 
     PopupWindow window;
     View popupView;
@@ -156,8 +154,11 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        zhiboId  =  getIntent().getStringExtra("zhiboId");
 
+        initBackTitle("直播");
+
+        zhiboId  =  getIntent().getStringExtra("zhiboId");
+        zhiboId =  "5a0b9bc4732d00043f24bfec";
         recyclerView = (RecyclerView) findViewById(R.id.rv_news_list);
         swipe_refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
 
@@ -185,7 +186,7 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
                 holder.setText(R.id.iv_play_small_title,"时长:"+ TimeUtils.formatSeconds(item.getTotal_seconds()));
                 iv_play_small_jindu.setText(item.getLocProgress());
                 ImageView iv_play_item =holder.getView(R.id.iv_play_item);
-                iv_play_item.setOnClickListener(new View.OnClickListener() {
+                holder.getView(R.id.rl_zhibo_item).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         currentListItme = holder.getAdapterPosition()-1;
@@ -259,15 +260,18 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
                     @Override
                     public void onClick(View v) {
                         //showToast("点击详情");
-                         AlertDialog.Builder builder = new AlertDialog.Builder(HealthZhiBoDetailActivity.this);
-                         LayoutInflater inflater = getLayoutInflater();
-                         View layout = inflater.inflate(R.layout.heath_zhibo_webview, null);//获取自定义布局
-                         WebView webView = (WebView) layout.findViewById(R.id.wv_heath_zhibo);
-                         webView.getSettings().setJavaScriptEnabled(true);
-                         webView.loadUrl(datas.get(holder.getAdapterPosition()-1).getDescription_url());
-                         builder.setView(layout);
-                         AlertDialog dlg = builder.create();
-                         dlg.show();
+//                         AlertDialog.Builder builder = new AlertDialog.Builder(HealthZhiBoDetailActivity.this);
+//                         LayoutInflater inflater = getLayoutInflater();
+//                         View layout = inflater.inflate(R.layout.heath_zhibo_webview, null);//获取自定义布局
+//                         WebView webView = (WebView) layout.findViewById(R.id.wv_heath_zhibo);
+//                         webView.getSettings().setJavaScriptEnabled(true);
+//                         webView.loadUrl(datas.get(holder.getAdapterPosition()-1).getDescription_url());
+//                         builder.setView(layout);
+//                         AlertDialog dlg = builder.create();
+//                         dlg.show();
+                        Intent intent = new Intent(HealthZhiBoDetailActivity.this,WebActivity.class);
+                        intent.putExtra("url",item.getDescription_url());
+                        startActivity(intent);
                     }
                 });
                 holder.getView(R.id.iv_zhibo_down).setOnClickListener(new View.OnClickListener() {
@@ -290,12 +294,12 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
         if(!TextUtils.isEmpty(zhiboId)) {
          mPresenter.info(zhiboId);
         }
-        swipe_refresh.setRefreshing(true);
+        swipe_refresh.setRefreshing(false);
         adapter.setOnLoadMoreListener(this,recyclerView);
         adapter.removeAllFooterView();
         //添加头部
         setHeaderView(recyclerView);
-     moni();
+     //moni();
 
 
     }
@@ -327,20 +331,24 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
     public void onClick(View v) {
         switch (v.getId()){
             case  R.id.tv_zhibo_detail:
-                if(isShowDetai==false){
-                    Drawable drawable = getResources().getDrawable(R.mipmap.zhibo_up);
-                    tv_zhibo_detail.setCompoundDrawablesWithIntrinsicBounds(null,null,drawable,null);
-                    isShowDetai =true;
-                    window.showAsDropDown(rl_detail_header, 0, 0);
-                }else{
-                    Drawable drawable = getResources().getDrawable(R.mipmap.zhibo_down);
-                    tv_zhibo_detail.setCompoundDrawablesWithIntrinsicBounds(null,null,drawable,null);
-                    isShowDetai =false;
-                    window.dismiss();
-                }
+//                if(isShowDetai==false){
+//                    Drawable drawable = getResources().getDrawable(R.mipmap.zhibo_up);
+//                    tv_zhibo_detail.setCompoundDrawablesWithIntrinsicBounds(null,null,drawable,null);
+//                    isShowDetai =true;
+//                    window.showAsDropDown(rl_detail_header, 0, 0);
+//                }else{
+//                    Drawable drawable = getResources().getDrawable(R.mipmap.zhibo_down);
+//                    tv_zhibo_detail.setCompoundDrawablesWithIntrinsicBounds(null,null,drawable,null);
+//                    isShowDetai =false;
+//                    window.dismiss();
+//                }
+                Intent intent = new Intent(HealthZhiBoDetailActivity.this,WebActivity.class);
+                intent.putExtra("url",detail_url);
+                startActivity(intent);
                 break;
             case R.id.tv_zhibo_detail_sort:
                 // 倒序
+                if(datas!=null && datas.size()>0){
                 if(isSort){
                     Drawable drawable = getResources().getDrawable(R.mipmap.zhibo_sort_dwon);
                     tv_zhibo_detail_sort.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
@@ -350,8 +358,10 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
                     tv_zhibo_detail_sort.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
                     isSort = true;
                 }
-                Collections.reverse(datas);
-                adapter.setNewData(datas);
+
+                    Collections.reverse(datas);
+                    adapter.setNewData(datas);
+                }
                 break;
         }
     }
@@ -372,17 +382,18 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
             mCurrentCounter = bean.getData().getClasses().size();
             if(!TextUtils.isEmpty(bean.getData().getTitle())) {
                 tv_zhibo_detail_title.setText(bean.getData().getTitle());
-                initBackTitle(bean.getData().getTitle());
             }
             description_url = bean.getData().getDescription_url();
             //设置图片集合
-            images.add(bean.getData().getBanner());
-            banner.setImages(images);
-            //banner设置方法全部调用完毕时最后调用
-            banner.start();
             datas = bean.getData().getClasses();
             adapter.setNewData(datas);
-            tv_zhibo_detail_gone.loadUrl(bean.getData().getDescription_url());
+
+            if(datas!=null && datas.size() > 0){
+                tv_nums.setText("播放全部 已更新"+datas.size()+"条");
+            }else{
+                tv_nums.setText("0");
+            }
+            detail_url = bean.getData().getDescription_url();
         }else {
             showToast(LiveConstats.ERROR);
         }
@@ -439,19 +450,11 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
 
     private void setHeaderView(RecyclerView view){
         View header = LayoutInflater.from(this).inflate(R.layout.activity_heath_zhibo_detail_header, view, false);
-        banner = (Banner) header.findViewById(R.id.banner);
-        //设置图片加载器
-        banner.setImageLoader(new GlideImageLoader());
-        banner.setOnBannerListener(new OnBannerListener() {
-            @Override
-            public void OnBannerClick(int position) {
-                Intent intent = new Intent(HealthZhiBoDetailActivity.this, WebActivity.class);
-                intent.putExtra("url",description_url);
-                startActivity(intent);
-            }
-        });
+
         tv_zhibo_detail = (TextView) header.findViewById(R.id.tv_zhibo_detail);
         rl_detail_header = (RelativeLayout) header.findViewById(R.id.rl_detail_header);
+
+        tv_nums = (TextView) header.findViewById(R.id.tv_nums);
 
         tv_zhibo_detail.setOnClickListener(this);
         // 标题
@@ -473,7 +476,7 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
             // 原本是(progress/seekBar.getMax())*player.mediaPlayer.getDuration()
             Log.d("zcr",(progress+1)+"");
             ZhiBoDetailItemBean.ClassesBean currentItem= datas.get(currentListItme);
-            currentItem.setLocProgress("已看"+progress+"%");
+            currentItem.setLocProgress("已听"+progress+"%");
             currentItem.setJinduProgress(progress);
             // adapter.setNewData(datas);
             adapter.notifyDataSetChanged();
@@ -507,9 +510,10 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
              切记不要胡乱强转！
              */
             //Glide 加载图片简单用法
-            Glide.with(context).load(path).into(imageView);
-            Uri uri = Uri.parse((String) path);
-            imageView.setImageURI(uri);
+//            Glide.with(context).load(path).into(imageView);
+//            Uri uri = Uri.parse((String) path);
+//            imageView.setImageURI(uri);
+            Glide.with(HealthZhiBoDetailActivity.this).load(path).into(imageView);
         }
     }
 
@@ -544,7 +548,15 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
         }
     }
 
-    public void downAndPlay(String url,String path){
+    public void downAndPlay(final String url, final String path){
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                player.playUrl(ON_LINE,url);
+            }
+        }).start();
+
         FileDownloader.getImpl().create(url)
                 .setPath(path)
                 .setListener(new FileDownloadListener() {
@@ -569,23 +581,22 @@ public class HealthZhiBoDetailActivity extends CoreBaseActivity<LiveZhiBoDetailP
                     }
                     @Override
                     protected void completed(BaseDownloadTask task) {
-                        ToastUtils.showToast(G08Application.getInstances(),"下载成功，准备播放");
+                        // ToastUtils.showToast(G08Application.getInstances(),"下载成功，准备播放");
                         final String  path = task.getPath(); // 得到下载路径
                         String  url = task.getUrl();
 
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                player.playUrl(ON_LOC,path);
-                            }
-                        }).start();
+//                        new Thread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                player.playUrl(ON_LOC,path);
+//                            }
+//                        }).start();
                     }
                     @Override
                     protected void paused(BaseDownloadTask task, int soFarBytes, int totalBytes) {
                     }
                     @Override
                     protected void error(BaseDownloadTask task, Throwable e) {
-                        ToastUtils.showToast(G08Application.getInstances(),"下载失败,请检查网络");
                     }
                     @Override
                     protected void warn(BaseDownloadTask task) {

@@ -13,7 +13,7 @@ import com.eaphone.g08android.R;
 import com.eaphone.g08android.bean.LiveHome;
 import com.eaphone.g08android.mvp.contracts.LiveContracts;
 import com.eaphone.g08android.mvp.presenter.LiveHealthPresenter;
-import com.eaphone.g08android.ui.personcenter.WebActivity;
+import com.eaphone.g08android.ui.personcenter.WebLiveHealthActivity;
 import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.mvpframe.base.ResultBase;
 import com.youth.banner.Banner;
@@ -63,8 +63,9 @@ public class LiveHealthFragment extends CoreBaseFragment<LiveHealthPresenter> im
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                Intent intent = new Intent(getActivity(), WebActivity.class);
+                Intent intent = new Intent(getActivity(), WebLiveHealthActivity.class);
                 intent.putExtra("url",banners.get(position).getUrl());
+                intent.putExtra("title",banners.get(position).getTitle());
                 startActivity(intent);
 
             }
@@ -83,7 +84,7 @@ public class LiveHealthFragment extends CoreBaseFragment<LiveHealthPresenter> im
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_info_zhibo:
-                startActivity(HealthZhiBoActivity.class);
+                startActivity(HealthZhiBoDetailActivity.class);
                 break;
             case R.id.iv_info_ketang:
                 startActivity(HealthClassRoomActivity.class);

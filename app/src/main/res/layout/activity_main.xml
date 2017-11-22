@@ -37,9 +37,10 @@
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
-            android:drawableTop="@drawable/selector_home_first"
+            android:drawableTop="@drawable/selector_home_doctor"
+
             android:gravity="center"
-            android:text="健康"
+            android:text="首页"
             android:textColor="@color/selector_home_text"
             android:textSize="@dimen/txtsize_caption" />
 
@@ -56,18 +57,7 @@
             android:textColor="@color/selector_home_text"
             android:textSize="@dimen/txtsize_caption" />
 
-        <RadioButton
-            android:id="@+id/rb_doctor"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="2dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/selector_home_doctor"
-            android:gravity="center"
-            android:text="资讯"
-            android:textColor="@color/selector_home_text"
-            android:textSize="@dimen/txtsize_caption" />
+
 
 
         <RadioButton
@@ -83,7 +73,18 @@
             android:textColor="@color/selector_home_text"
             android:textSize="@dimen/txtsize_caption" />
 
-
+        <RadioButton
+            android:id="@+id/rb_doctor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="健康"
+            android:drawableTop="@drawable/selector_home_first"
+            android:textColor="@color/selector_home_text"
+            android:textSize="@dimen/txtsize_caption" />
         <RadioButton
             android:id="@+id/rb_self"
             android:layout_width="0dp"

@@ -1,10 +1,5 @@
 package com.eaphone.g08android.bean;
 
-import android.support.annotation.NonNull;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,26 +13,35 @@ import java.util.List;
  */
 public class ZhiBoDetailItemBean {
 
+
     /**
-     * title : 方法：一万次试验法则
-     * image : https://xxx/xxx/xxx/xxx.jpg
-     * banner : http://xxx/xxx/xxx/xxx.jpg
-     * description_url : http://xxx/xxx/xxx/xxx/xxx.html
-     * classes : [{"id":"","title":"方法：一万次试验法则（一）","createTime":"2017-11-03T16:48:20","description_url":"http://xxx/xxx/xxx/xxx/xxx.html","total_seconds":657,"bytes":1235763,"url":"http://192.168.1.238:8048/common/v1/file/5a0bde0165f8f81e9cf257d4.mp3","progress":{"finished":false,"last_seconds":428}},{"id":"","title":"方法：一万次试验法则（二）","createTime":"2017-11-13T16:48:20","description_url":"http://xxx/xxx/xxx/xxx/xxx.html","total_seconds":657,"bytes":1235763,"url":"http://192.168.1.238:8048/common/v1/file/5a0bde0165f8f81e9cf257d4.mp3","progress":{"finished":false,"last_seconds":428}},{"id":"","title":"方法：一万次试验法则（三）","createTime":"2017-11-23T16:48:20","description_url":"http://xxx/xxx/xxx/xxx/xxx.html","total_seconds":657,"bytes":1235763,"url":"http://192.168.1.238:8048/common/v1/file/5a0bde0165f8f81e9cf257d4.mp3","progress":{"finished":true}}]
+     * classes : [{"description_url":"http://192.168.1.238:8048/news/live/class/5a14e4cfd8e78f5ff7f3af9c/","id":"5a14e4cfd8e78f5ff7f3af9c","title":"你好旧时光","total_seconds":60,"url":"http://music.163.com/song/media/outer/url?id=407459645.mp3"},{"description_url":"https://www.baidu.com/?tn=57095150_2_oem_dg","id":"5a13f51fd8e78f5ff75ef2b8","title":"test2","total_seconds":30,"url":"http://music.163.com/song/media/outer/url?id=518896134.mp3"},{"description_url":"http://192.168.1.238:8048/news/live/class/5a13ed14d8e78f5ff75ef2b4/","id":"5a13ed14d8e78f5ff75ef2b4","title":"直播视频3","total_seconds":60,"url":"http://music.163.com/song/media/outer/url?id=407459645.mp3"},{"description_url":"http://192.168.1.238:8048/news/live/class/5a13f00bd8e78f5ff75ef2b6/","id":"5a13f00bd8e78f5ff75ef2b6","title":"465464565645646","total_seconds":1,"url":"http://music.163.com/song/media/outer/url?id=518896134.mp3"}]
+     * description_url : http://192.168.1.238:8048/news/live/5a0b9bc4732d00043f24bfec/
+     * id : 5a0b9bc4732d00043f24bfec
+     * image : http://192.168.1.238:8048/common/v1/image/57d288c9ce6a11e78b8a1f6cb43f7feb.jpg
+     * title : 固定的指标类别
      */
 
-    private String title;
-    private String image;
-    private String banner;
     private String description_url;
+    private String id;
+    private String image;
+    private String title;
     private List<ClassesBean> classes;
 
-    public String getTitle() {
-        return title;
+    public String getDescription_url() {
+        return description_url;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDescription_url(String description_url) {
+        this.description_url = description_url;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getImage() {
@@ -48,20 +52,12 @@ public class ZhiBoDetailItemBean {
         this.image = image;
     }
 
-    public String getBanner() {
-        return banner;
+    public String getTitle() {
+        return title;
     }
 
-    public void setBanner(String banner) {
-        this.banner = banner;
-    }
-
-    public String getDescription_url() {
-        return description_url;
-    }
-
-    public void setDescription_url(String description_url) {
-        this.description_url = description_url;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public List<ClassesBean> getClasses() {
@@ -72,39 +68,23 @@ public class ZhiBoDetailItemBean {
         this.classes = classes;
     }
 
-    public static class ClassesBean implements Comparable<ClassesBean>{
+    public static class ClassesBean {
         /**
-         * id :
-         * title : 方法：一万次试验法则（一）
-         * createTime : 2017-11-03T16:48:20
-         * description_url : http://xxx/xxx/xxx/xxx/xxx.html
-         * total_seconds : 657
-         * bytes : 1235763
-         * url : http://192.168.1.238:8048/common/v1/file/5a0bde0165f8f81e9cf257d4.mp3
-         * progress : {"finished":false,"last_seconds":428}
+         * description_url : http://192.168.1.238:8048/news/live/class/5a14e4cfd8e78f5ff7f3af9c/
+         * id : 5a14e4cfd8e78f5ff7f3af9c
+         * title : 你好旧时光
+         * total_seconds : 60
+         * url : http://music.163.com/song/media/outer/url?id=407459645.mp3
          */
 
+        private String description_url;
         private String id;
         private String title;
-        private String createTime;
-        private String description_url;
         private int total_seconds;
-        private int bytes;
         private String url;
-        private ProgressBean progress;
+
 
         private boolean isFouce;
-        private int pauseNum=0;
-        private String locProgress;
-        private int jinduProgress;
-
-        public int getJinduProgress() {
-            return jinduProgress;
-        }
-
-        public void setJinduProgress(int jinduProgress) {
-            this.jinduProgress = jinduProgress;
-        }
 
         public boolean isFouce() {
             return isFouce;
@@ -130,21 +110,18 @@ public class ZhiBoDetailItemBean {
             this.locProgress = locProgress;
         }
 
-        public String getId() {
-            return id;
+        public int getJinduProgress() {
+            return jinduProgress;
         }
 
-        public void setId(String id) {
-            this.id = id;
+        public void setJinduProgress(int jinduProgress) {
+            this.jinduProgress = jinduProgress;
         }
 
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
+        private int pauseNum=0;
+        private String locProgress;
+        private int jinduProgress;
+        private String createTime;
 
         public String getCreateTime() {
             return createTime;
@@ -162,6 +139,22 @@ public class ZhiBoDetailItemBean {
             this.description_url = description_url;
         }
 
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
         public int getTotal_seconds() {
             return total_seconds;
         }
@@ -170,70 +163,12 @@ public class ZhiBoDetailItemBean {
             this.total_seconds = total_seconds;
         }
 
-        public int getBytes() {
-            return bytes;
-        }
-
-        public void setBytes(int bytes) {
-            this.bytes = bytes;
-        }
-
         public String getUrl() {
             return url;
         }
 
         public void setUrl(String url) {
             this.url = url;
-        }
-
-        public ProgressBean getProgress() {
-            return progress;
-        }
-
-        public void setProgress(ProgressBean progress) {
-            this.progress = progress;
-        }
-
-        @Override
-        public int compareTo(@NonNull ClassesBean o) {
-              return (int) (getStringToDate(this.getCreateTime()) - getStringToDate(o
-                    .getCreateTime()));
-        }
-        /* 将字符串转为时间戳 */
-        public static long getStringToDate(String time) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-            Date date = new Date();
-            try {
-                date = sdf.parse(time);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            return date.getTime() / 100000;
-        }
-        public static class ProgressBean {
-            /**
-             * finished : false
-             * last_seconds : 428
-             */
-
-            private boolean finished;
-            private int last_seconds;
-
-            public boolean isFinished() {
-                return finished;
-            }
-
-            public void setFinished(boolean finished) {
-                this.finished = finished;
-            }
-
-            public int getLast_seconds() {
-                return last_seconds;
-            }
-
-            public void setLast_seconds(int last_seconds) {
-                this.last_seconds = last_seconds;
-            }
         }
     }
 }

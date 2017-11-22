@@ -353,6 +353,7 @@ public boolean shouldOverrideUrlLoading(final WebView view, String url) {
         wxPayBean.noncestr = ss.get("noncestr");
         wxPayBean.prepayid = ss.get("prepayid");
         wxPayBean.pack = "Sign=WXPay";
+        PreferencesUtils.putSharePre("out_trade_no",ss.get("out_trade_no"));
         WXPay.UseWXPay(mActivity,wxPayBean);
        return true;
     }

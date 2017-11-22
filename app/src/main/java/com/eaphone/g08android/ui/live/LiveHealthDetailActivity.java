@@ -35,6 +35,8 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 import com.umeng.socialize.shareboard.ShareBoardConfig;
 
 import butterknife.BindView;
@@ -82,6 +84,10 @@ public class LiveHealthDetailActivity extends CoreBaseActivity<InfoDetailPresent
 
     private String id = "";
     private String newsTypeId = "";
+
+    String title;
+    String url;
+    String description;
 
     @Override
     public int getLayoutId() {
@@ -135,23 +141,18 @@ public class LiveHealthDetailActivity extends CoreBaseActivity<InfoDetailPresent
                     String[] mPermissionList = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CALL_PHONE,Manifest.permission.READ_LOGS,Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.SET_DEBUG_APP,Manifest.permission.SYSTEM_ALERT_WINDOW,Manifest.permission.GET_ACCOUNTS,Manifest.permission.WRITE_APN_SETTINGS};
                     ActivityCompat.requestPermissions(LiveHealthDetailActivity.this,mPermissionList,123);
                 }else{
-                    shareYoumen();
+                    shareYoumen(title,url,description);
                 }
-
             }
         });
-
-
-
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
 
-        shareYoumen();
+        shareYoumen(title,url,description);
     }
-    public void  shareYoumen(){
+    public void  shareYoumen(String title,String url,String description){
         ShareBoardConfig config = new ShareBoardConfig();//新建ShareBoardConfig               config.setShareboardPostion(ShareBoardConfig.SHAREBOARD_POSITION_CENTER);//设置位置
         config.setMenuItemBackgroundShape(ShareBoardConfig.BG_SHAPE_CIRCULAR);
         config.setCancelButtonVisibility(true);
@@ -159,10 +160,14 @@ public class LiveHealthDetailActivity extends CoreBaseActivity<InfoDetailPresent
         config.setCancelButtonVisibility(false);
         config.setIndicatorVisibility(false);
         config.setTitleText("分享到");
-
+        UMWeb web = new UMWeb(url);
+        UMImage thumb =  new UMImage(this, R.mipmap.ic_logo);
+        web.setTitle(title);//标题
+        web.setThumb(thumb);  //缩略图
+        web.setDescription(description);//描述
         new ShareAction(LiveHealthDetailActivity.this)
-                .withText("hello")
-                .setDisplayList(SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.QZONE,SHARE_MEDIA.SINA)
+                .withText(title).withMedia(web)
+                .setDisplayList(SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.QQ,SHARE_MEDIA.SINA)
                .setCallback(new UMShareListener() {
                     @Override
                     public void onStart(SHARE_MEDIA share_media) {
@@ -209,6 +214,10 @@ public class LiveHealthDetailActivity extends CoreBaseActivity<InfoDetailPresent
     public void getInfoDetail(ResultBase<InfoDetail> result) {
         dismiss();
         if (result.isSuccess()) {
+
+            title = result.getData().getTitle();
+            url = result.getData().getUrl();
+            description = result.getData().getDescription();
             tv_title_name.setText(result.getData().getTitle());
             tv_time.setText(TimeUtils.displayTime(result.getData().getCreateTime()));
             tv_come_from.setText("来源：" + result.getData().getCreateBy());

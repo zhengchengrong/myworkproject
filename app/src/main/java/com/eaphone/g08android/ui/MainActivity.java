@@ -124,10 +124,10 @@ public class MainActivity extends CoreBaseActivity<MainPresenter> implements Com
         infoFragment = new LiveHealthFragment();
         marketFragment = new MarketFragment();
         centerFragment = new PersonCenterFragment();
-        list.add(healthyFragment);
-        list.add(serviceFragment);
         list.add(infoFragment);
+        list.add(serviceFragment);
         list.add(marketFragment);
+        list.add(healthyFragment);
         list.add(centerFragment);
         mAdapter = new MainFragmentPagerAdapter(getSupportFragmentManager(), list);
         mViewPager.setAdapter(mAdapter);
@@ -144,20 +144,20 @@ public class MainActivity extends CoreBaseActivity<MainPresenter> implements Com
                 switch (i) {
                     case R.id.rb_home:
                         mViewPager.setCurrentItem(0);
-                        builder.setTitleText("健康").setLeftImage(0);
+                        builder.setTitleText("首页").setLeftImage(0);
                         //startActivity(EsptouchDemoActivity.class);
                         break;
                     case R.id.rb_health:
                         mViewPager.setCurrentItem(1);
                         builder.setTitleText("服务").setLeftImage(0);
                         break;
-                    case R.id.rb_doctor:
-                        mViewPager.setCurrentItem(2);
-                        builder.setTitleText("资讯").setLeftImage(0);
-                        break;
                     case R.id.rb_hospital:
-                        mViewPager.setCurrentItem(3);
+                        mViewPager.setCurrentItem(2);
                         builder.setTitleText("商城").setLeftImage(0);
+                        break;
+                    case R.id.rb_doctor:
+                        mViewPager.setCurrentItem(3);
+                        builder.setTitleText("健康").setLeftImage(0);
                         break;
                     case R.id.rb_self:
                         if (LoginUtil.isLogin()) {
@@ -207,16 +207,16 @@ public class MainActivity extends CoreBaseActivity<MainPresenter> implements Com
         if (event != null && event.getCode() == EventCode.C) {
 //处理未登录时由于点击“我的”之后该选项卡从登陆页面返回被选中的问题
             String title = builder.getTvTitle().getText().toString();
-            if ("健康".equals(title)) {
+            if ("首页".equals(title)) {
                 mViewPager.setCurrentItem(0);
                 rb_home.setChecked(true);
             } else if ("服务".equals(title)) {
                 mViewPager.setCurrentItem(1);
                 rb_health.setChecked(true);
-            } else if ("资讯".equals(title)) {
+            } else if ("商城".equals(title)) {
                 mViewPager.setCurrentItem(2);
                 rb_doctor.setChecked(true);
-            } else if ("商城".equals(title)) {
+            } else if ("健康".equals(title)) {
                 mViewPager.setCurrentItem(3);
                 rb_hospital.setChecked(true);
             }

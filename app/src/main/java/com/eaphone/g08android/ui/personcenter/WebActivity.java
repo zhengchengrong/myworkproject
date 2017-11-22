@@ -74,6 +74,7 @@ public class WebActivity extends CoreBaseActivity {
         builder.build();
         mWebUtil = new WebUtil(WebActivity.this, web_view, url);
         web_view.addJavascriptInterface(new JavaScriptObject(), "eaphone");
+
     }
 
 

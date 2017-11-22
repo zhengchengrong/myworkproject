@@ -9,9 +9,11 @@
         android:layout_height="match_parent"
         >
 
-        <com.youth.banner.Banner
+        <ImageView
             android:id="@+id/banner"
             android:layout_width="match_parent"
+            android:background="@mipmap/info_zhibo_bg_logo"
+            android:scaleType="fitXY"
             android:layout_height="@dimen/dp_150" />
 
         <RelativeLayout
@@ -32,7 +34,6 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="@dimen/dp_10"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="S2E06 沟通的七个层次"
                 android:textColor="@color/txt_black"
                 android:textSize="@dimen/sp_16" />
 
@@ -58,6 +59,7 @@
             android:background="@color/white">
 
             <TextView
+                android:id="@+id/tv_nums"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -65,7 +67,7 @@
                 android:drawableLeft="@mipmap/zhibo_play_all"
                 android:drawablePadding="@dimen/dp_3"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="播放全部，已更新201444"
+                android:text="0"
                 android:textColor="@color/gray_text_2"
                 android:textSize="@dimen/sp_12" />
 

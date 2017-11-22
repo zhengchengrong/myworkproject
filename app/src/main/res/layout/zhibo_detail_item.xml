@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/rl_zhibo_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_75"
     android:background="@color/white"
@@ -53,13 +55,14 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/dp_10"
+        android:visibility="gone"
         />
     <ImageView
         android:id="@+id/iv_zhibo_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/zhibo_detail_text"
-        android:layout_toLeftOf="@+id/iv_zhibo_down"
+        android:layout_alignParentRight="true"
         android:scaleType="fitXY"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/dp_15"

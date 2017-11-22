@@ -537,7 +537,9 @@
         <service android:name=".service.PlayerService"/>
 
 
-
+        <activity android:name=".ui.personcenter.WebShareActivity"/>
+        <activity android:name=".ui.personcenter.WebGroupActivity"/>
+        <activity android:name=".ui.personcenter.WebLiveHealthActivity"/>
         <receiver android:name=".receiver.WifiReceiver">
             <intent-filter>
                 <action android:name="android.net.wifi.RSSI_CHANGED"/>

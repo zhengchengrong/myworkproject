@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -15,7 +16,7 @@ import com.eaphone.g08android.bean.ZhiBoGroupItemBean;
 import com.eaphone.g08android.http.ImageLoader;
 import com.eaphone.g08android.mvp.contracts.LiveContracts;
 import com.eaphone.g08android.mvp.presenter.LiveZhiBoGroupPresenter;
-import com.eaphone.g08android.ui.personcenter.WebActivity;
+import com.eaphone.g08android.ui.personcenter.WebGroupActivity;
 import com.eaphone.g08android.utils.Const;
 import com.eaphone.g08android.utils.RecyclerViewHelper;
 import com.eaphone.g08android.widget.RoundImageView;
@@ -42,6 +43,8 @@ public class HealthZhiBoGroupActivity extends CoreBaseActivity<LiveZhiBoGroupPre
     private int mCurrentCounter = 0;
     private boolean isErr;
 
+    private TextView tv_group_detail;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_heath_group_detail;
@@ -50,6 +53,8 @@ public class HealthZhiBoGroupActivity extends CoreBaseActivity<LiveZhiBoGroupPre
     @Override
     public void initView(Bundle savedInstanceState) {
         initBackTitle(LiveConstats.GROUP);
+        tv_group_detail = (TextView) this.findViewById(R.id.tv_group_detail);
+
         show(R.string.loading);
         recyclerView = (RecyclerView) findViewById(R.id.rv_news_list);
         swipe_refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
@@ -62,7 +67,7 @@ public class HealthZhiBoGroupActivity extends CoreBaseActivity<LiveZhiBoGroupPre
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(HealthZhiBoGroupActivity.this, WebActivity.class);
+                        Intent intent = new Intent(HealthZhiBoGroupActivity.this, WebGroupActivity.class);
                         intent.putExtra("url",item.getUrl());
                         intent.putExtra("title",item.getTitle());
                         startActivity(intent);
